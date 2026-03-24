@@ -90,7 +90,7 @@ export default function HeroSection() {
           <div className="w-7 h-7 border border-cyber-green flex items-center justify-center">
             <div className="w-3 h-3 bg-cyber-green" />
           </div>
-          <span className="font-mono text-sm text-cyber-green tracking-widest uppercase">NetGuard</span>
+          <span className="font-mono text-sm text-cyber-green tracking-widest uppercase">инфо-безопасность.рф</span>
           <div className="flex items-center gap-1 ml-3">
             <span className="w-1.5 h-1.5 rounded-full bg-cyber-green status-active" />
             <span className="font-mono text-xs text-cyber-green opacity-40 hidden sm:block">SECURE</span>
@@ -182,7 +182,7 @@ export default function HeroSection() {
               <div className="w-2.5 h-2.5 rounded-full bg-cyber-green opacity-70" />
             </div>
             <span className="font-mono text-xs text-cyber-green opacity-30 ml-2">
-              netguard@secure:~$
+              admin@инфо-безопасность.рф:~$
             </span>
           </div>
           <TerminalText lines={TERMINAL_LINES} speed={40} />

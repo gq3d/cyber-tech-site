@@ -165,7 +165,7 @@ export default function CapabilityPage() {
           <div className="w-6 h-6 border border-cyber-green flex items-center justify-center">
             <div className="w-2.5 h-2.5 bg-cyber-green" />
           </div>
-          <span className="font-mono text-xs text-cyber-green opacity-60 group-hover:opacity-100 transition-opacity tracking-widest">NetGuard</span>
+          <span className="font-mono text-xs text-cyber-green opacity-60 group-hover:opacity-100 transition-opacity tracking-widest">инфо-безопасность.рф</span>
         </Link>
 
         <div className="flex items-center gap-2">

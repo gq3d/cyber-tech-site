@@ -90,11 +90,11 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <Icon name="Mail" size={12} className="text-cyber-green opacity-40" />
-                  <span className="font-mono text-xs text-cyber-green opacity-60">security@netguard.io</span>
+                  <span className="font-mono text-xs text-cyber-green opacity-60">info@инфо-безопасность.рф</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Icon name="MessageSquare" size={12} className="text-cyber-green opacity-40" />
-                  <span className="font-mono text-xs text-cyber-green opacity-60">Telegram: @netguard_sec</span>
+                  <span className="font-mono text-xs text-cyber-green opacity-60">Telegram: @infosec_rf</span>
                 </div>
               </div>
             </div>

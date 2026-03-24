@@ -10,7 +10,7 @@ export default function FooterSection() {
               <div className="w-7 h-7 border border-cyber-green flex items-center justify-center">
                 <div className="w-3 h-3 bg-cyber-green" />
               </div>
-              <span className="font-mono text-sm text-cyber-green tracking-widest uppercase">NetGuard</span>
+              <span className="font-mono text-sm text-cyber-green tracking-widest uppercase">инфо-безопасность.рф</span>
             </div>
             <p className="font-mono text-xs text-cyber-green opacity-40 leading-relaxed max-w-xs">
               Инженерная защита сетевой инфраструктуры. Без маркетинга — только технические решения.
@@ -39,11 +39,11 @@ export default function FooterSection() {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Icon name="Mail" size={12} className="text-cyber-green opacity-40" />
-                <span className="font-mono text-xs text-cyber-green opacity-50">security@netguard.io</span>
+                <span className="font-mono text-xs text-cyber-green opacity-50">info@инфо-безопасность.рф</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="MessageSquare" size={12} className="text-cyber-green opacity-40" />
-                <span className="font-mono text-xs text-cyber-green opacity-50">@netguard_sec</span>
+                <span className="font-mono text-xs text-cyber-green opacity-50">@infosec_rf</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="Clock" size={12} className="text-cyber-green opacity-40" />
@@ -55,7 +55,7 @@ export default function FooterSection() {
 
         <div className="border-t border-cyber-green border-opacity-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="font-mono text-xs text-cyber-green opacity-25">
-            © 2025 NetGuard · Все права защищены
+            © 2025 инфо-безопасность.рф · Все права защищены
           </span>
           <div className="flex items-center gap-6">
             <a href="#" className="font-mono text-xs text-cyber-green opacity-25 hover:opacity-50 transition-opacity">Политика конфиденциальности</a>
