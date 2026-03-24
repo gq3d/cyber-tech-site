@@ -92,7 +92,7 @@ export default function ContactSection() {
                 { label: "Инженеры на связи",   value: "Доступны",     ok: true  },
                 { label: "Время реакции",        value: "< 24 ч",       ok: true  },
                 { label: "NDA / конфиденциальность", value: "Обязательно", ok: true },
-                { label: "Первичный аудит",      value: "Бесплатно",   ok: true  },
+
               ].map((row) => (
                 <div key={row.label} className="flex items-center justify-between border-b border-cyber-green border-opacity-5 pb-4 last:border-b-0 last:pb-0">
                   <span className="font-mono text-xs text-cyber-green opacity-40">{row.label}</span>
