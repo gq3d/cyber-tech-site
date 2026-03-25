@@ -130,6 +130,36 @@ export default function CapabilityPage() {
     return () => clearTimeout(t);
   }, [slug]);
 
+  useEffect(() => {
+    if (!cap) return;
+    const title = `${cap.title} — инфо-безопасность.рф`;
+    const description = cap.summary;
+    const url = `https://инфо-безопасность.рф/capabilities/${cap.slug}`;
+
+    document.title = title;
+    const setMeta = (sel: string, content: string) => {
+      let el = document.querySelector(sel) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement("meta"); document.head.appendChild(el); }
+      el.setAttribute("content", content);
+    };
+    setMeta('meta[name="description"]', description);
+    setMeta('meta[property="og:title"]', title);
+    setMeta('meta[property="og:description"]', description);
+    setMeta('meta[property="og:url"]', url);
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) { canonical = document.createElement("link"); canonical.setAttribute("rel", "canonical"); document.head.appendChild(canonical); }
+    canonical.setAttribute("href", url);
+
+    return () => {
+      document.title = "инфо-безопасность.рф — Защита сетевой инфраструктуры";
+      setMeta('meta[name="description"]', "Профессиональная защита корпоративных сетей: приватные каналы, микросегментация, Zero Trust архитектура, мониторинг трафика 24/7.");
+      setMeta('meta[property="og:title"]', "инфо-безопасность.рф — Защита сетевой инфраструктуры");
+      setMeta('meta[property="og:description"]', "Профессиональная защита корпоративных сетей: приватные каналы, микросегментация, Zero Trust архитектура, мониторинг трафика 24/7.");
+      setMeta('meta[property="og:url"]', "https://инфо-безопасность.рф/");
+      if (canonical) canonical.setAttribute("href", "https://инфо-безопасность.рф/");
+    };
+  }, [cap]);
+
   const goBack = () => {
     const savedY = sessionStorage.getItem("capabilities_scroll_y");
     navigate("/");
