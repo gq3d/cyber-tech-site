@@ -33,7 +33,7 @@ export default function ContactPage() {
           <div className="space-y-5">
             {[
               { icon: "Mail", label: "Email", value: "info@инфо-безопасность.рф", href: "mailto:info@инфо-безопасность.рф" },
-              { icon: "MessageSquare", label: "Telegram", value: "@infosec_rf", href: "https://t.me/infosec_rf" },
+              { icon: "MessageSquare", label: "Telegram", value: "@secureinfosupport", href: "https://t.me/secureinfosupport" },
               { icon: "Clock", label: "Часы работы", value: "Пн–Пт 9:00–20:00 МСК", href: null },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-4">

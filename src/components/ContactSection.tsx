@@ -53,12 +53,12 @@ export default function ContactSection() {
                     <Icon name="MessageSquare" size={13} className="text-cyber-green opacity-50" />
                   </div>
                   <a
-                    href="https://t.me/infosec_rf"
+                    href="https://t.me/secureinfosupport"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-mono text-sm text-cyber-green opacity-65 hover:opacity-100 transition-opacity"
                   >
-                    Telegram: @infosec_rf
+                    Telegram: @secureinfosupport
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
