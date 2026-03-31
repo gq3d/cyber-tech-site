@@ -35,14 +35,14 @@
     --radius: 0.25rem;
 
     /* Custom cyber palette */
-    --cyber-green: #00ff88;
-    --cyber-green-dim: #00cc6a;
-    --cyber-green-glow: rgba(0, 255, 136, 0.15);
-    --cyber-blue: #0a0e1a;
-    --cyber-blue-mid: #0d1829;
-    --cyber-grid: rgba(0, 255, 136, 0.04);
-    --cyber-border: rgba(0, 255, 136, 0.15);
-    --cyber-text-dim: rgba(150, 255, 200, 0.4);
+    --cyber-green: #ffffff;
+    --cyber-green-dim: #cccccc;
+    --cyber-green-glow: rgba(255, 255, 255, 0.15);
+    --cyber-blue: #000000;
+    --cyber-blue-mid: #111111;
+    --cyber-grid: rgba(255, 255, 255, 0.04);
+    --cyber-border: rgba(255, 255, 255, 0.15);
+    --cyber-text-dim: rgba(255, 255, 255, 0.4);
     --sidebar-background: 220 20% 6%;
     --sidebar-foreground: 150 100% 95%;
     --sidebar-primary: 152 100% 55%;
@@ -66,7 +66,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: "IBM Plex Sans", sans-serif;
-    background-color: #060a12;
+    background-color: #000000;
     overflow-x: hidden;
   }
 }
@@ -115,13 +115,13 @@
   0%,
   100% {
     box-shadow:
-      0 0 8px var(--cyber-green),
-      0 0 20px rgba(0, 255, 136, 0.2);
+      0 0 8px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.1);
   }
   50% {
     box-shadow:
-      0 0 16px var(--cyber-green),
-      0 0 40px rgba(0, 255, 136, 0.35);
+      0 0 16px rgba(255, 255, 255, 0.5),
+      0 0 40px rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -323,9 +323,9 @@
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #060a12;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--cyber-green);
+  background: #444444;
   border-radius: 2px;
 }

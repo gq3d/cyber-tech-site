@@ -55,11 +55,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         cyber: {
-          green: "#00ff88",
-          "green-dim": "#00cc6a",
-          blue: "#060a12",
-          "blue-mid": "#0d1829",
-          "blue-light": "#1a2744",
+          green: "#ffffff",
+          "green-dim": "#cccccc",
+          blue: "#000000",
+          "blue-mid": "#111111",
+          "blue-light": "#1a1a1a",
         },
       },
       borderRadius: {
