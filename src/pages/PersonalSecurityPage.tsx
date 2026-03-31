@@ -31,11 +31,9 @@ const PLANS = [
     icon: "User",
     badge: "SOLO",
     title: "Личный",
-    subtitle: "1 устройство",
     price: "555 ₽",
     period: "/ месяц",
     features: [
-      "Одно устройство",
       "Шифрование всего трафика",
       "Анонимный DNS",
       "Блокировка трекеров",
@@ -48,12 +46,10 @@ const PLANS = [
     icon: "ShieldCheck",
     badge: "PRIVACY",
     title: "Приватность",
-    subtitle: "3 устройства",
     price: "888 ₽",
     period: "/ месяц",
     highlight: true,
     features: [
-      "Три устройства одновременно",
       "Шифрование E2E",
       "Анонимный DNS + DoH/DoT",
       "Обфускация трафика",
@@ -66,11 +62,9 @@ const PLANS = [
     icon: "Ghost",
     badge: "GHOST",
     title: "Невидимка",
-    subtitle: "5 устройств",
     price: "3 333 ₽",
     period: "/ месяц",
     features: [
-      "5 устройств одновременно",
       "Максимальное шифрование AES-256",
       "Маскировка трафика под HTTPS",
       "Защита от анализа трафика",
@@ -137,8 +131,7 @@ export default function PersonalSecurityPage() {
                 <Icon name={plan.icon} size={15} className="text-white/50" />
                 <span className="font-mono text-[10px] tracking-widest text-white/30">{plan.badge}</span>
               </div>
-              <div className="text-lg font-bold text-white mb-0.5">{plan.title}</div>
-              <div className="text-sm text-white/35 mb-4">{plan.subtitle}</div>
+              <div className="text-lg font-bold text-white mb-4">{plan.title}</div>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-bold text-white">{plan.price}</span>
                 <span className="text-sm text-white/30">{plan.period}</span>
