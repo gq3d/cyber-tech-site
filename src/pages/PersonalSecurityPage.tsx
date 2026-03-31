@@ -110,30 +110,13 @@ export default function PersonalSecurityPage() {
         </p>
       </div>
 
-      {/* Features grid */}
-      <div className="grid sm:grid-cols-2 gap-3 mb-12">
-        {FEATURES.map((f) => (
-          <div key={f.title} className="border border-white/10 bg-white/[0.02] p-6">
-            <div className="flex items-start gap-4">
-              <div className="mt-0.5 text-white/60 shrink-0">
-                <Icon name={f.icon} size={20} />
-              </div>
-              <div>
-                <div className="text-base font-semibold text-white mb-2">{f.title}</div>
-                <p className="text-sm text-white/45 leading-relaxed">{f.desc}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
       {/* Plans */}
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-xl font-bold text-white">Выберите тариф</h2>
         <span className="text-sm text-white/30">Подключение за 24 часа</span>
       </div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-12">
         {PLANS.map((plan) => (
           <div
             key={plan.id}
@@ -179,6 +162,23 @@ export default function PersonalSecurityPage() {
               }`}>
                 {activePlan === plan.id ? "Выбрано — связаться" : "Выбрать"}
               </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Features grid */}
+      <div className="grid sm:grid-cols-2 gap-3 mb-12">
+        {FEATURES.map((f) => (
+          <div key={f.title} className="border border-white/10 bg-white/[0.02] p-6">
+            <div className="flex items-start gap-4">
+              <div className="mt-0.5 text-white/60 shrink-0">
+                <Icon name={f.icon} size={20} />
+              </div>
+              <div>
+                <div className="text-base font-semibold text-white mb-2">{f.title}</div>
+                <p className="text-sm text-white/45 leading-relaxed">{f.desc}</p>
+              </div>
             </div>
           </div>
         ))}
