@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
@@ -77,7 +76,6 @@ const PLANS = [
 ];
 
 export default function PersonalSecurityPage() {
-  const [activePlan, setActivePlan] = useState<string | null>(null);
   const navigate = useNavigate();
 
   return (
@@ -114,10 +112,9 @@ export default function PersonalSecurityPage() {
         {PLANS.map((plan) => (
           <div
             key={plan.id}
-            onClick={() => setActivePlan(activePlan === plan.id ? null : plan.id)}
-            className={`relative flex flex-col border cursor-pointer transition-all duration-200 bg-white/[0.02] ${
-              plan.highlight ? "ring-1 ring-white/20" : ""
-            } ${activePlan === plan.id ? "border-white/50" : "border-white/10 hover:border-white/30"}`}
+            className={`relative flex flex-col border bg-white/[0.02] ${
+              plan.highlight ? "ring-1 ring-white/20 border-white/20" : "border-white/10"
+            }`}
           >
             {plan.highlight && <div className="absolute -top-px left-0 right-0 h-0.5 bg-white/50" />}
             {plan.highlight && (
@@ -147,15 +144,7 @@ export default function PersonalSecurityPage() {
               ))}
             </div>
 
-            <div className="p-5 pt-0">
-              <button className={`w-full py-2.5 text-sm font-medium border transition-all ${
-                activePlan === plan.id
-                  ? "text-white border-white/50 bg-white/10"
-                  : "text-white/40 border-white/15 hover:border-white/40 hover:text-white/70"
-              }`}>
-                {activePlan === plan.id ? "Выбрано — связаться" : "Выбрать"}
-              </button>
-            </div>
+
           </div>
         ))}
       </div>
