@@ -144,9 +144,7 @@ export default function CapabilitiesSection() {
           </div>
           <button
             className="font-mono text-xs border border-cyber-green border-opacity-30 text-cyber-green px-5 py-2.5 hover:bg-cyber-green hover:text-cyber-blue transition-all duration-200 tracking-wider shrink-0"
-            onClick={() => {
-              document.getElementById("Контакт")?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={() => { window.location.href = "/contact"; }}
           >
             Запросить демо →
           </button>

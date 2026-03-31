@@ -125,7 +125,7 @@ export default function InfraAnalyzerResults({ result, logs }: InfraAnalyzerResu
         </div>
         <button
           className="font-mono text-xs bg-cyber-green text-cyber-blue font-bold px-6 py-3 hover:bg-cyber-green-dim transition-colors shrink-0 tracking-wider"
-          onClick={() => document.getElementById("Контакт")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() => { window.location.href = "/contact"; }}
         >
           Запросить аудит →
         </button>

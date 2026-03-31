@@ -325,8 +325,7 @@ export default function CapabilityPage() {
             <div className="font-mono text-xs text-cyber-green opacity-45">Инженер разберёт применимость к вашей инфраструктуре</div>
           </div>
           <Link
-            to="/#Контакт"
-            onClick={() => { setTimeout(() => document.getElementById("Контакт")?.scrollIntoView({ behavior: "smooth" }), 100); }}
+            to="/contact"
             className="font-mono text-xs bg-cyber-green text-cyber-blue font-bold px-6 py-3 hover:bg-cyber-green-dim transition-colors shrink-0 tracking-wider"
           >
             Запросить консультацию →
