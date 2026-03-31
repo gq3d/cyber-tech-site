@@ -19,9 +19,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {/* Top bar */}
       <header className="h-12 border-b border-cyber-green/10 flex items-center justify-between px-4 bg-[#070b14] shrink-0 z-30 sticky top-0">
         <NavLink to="/" className="flex items-center gap-2">
-          <div className="w-6 h-6 border border-cyber-green/60 flex items-center justify-center">
-            <div className="w-2.5 h-2.5 bg-cyber-green" />
-          </div>
+          <img
+            src="https://cdn.poehali.dev/projects/233dcfd3-64d0-41d4-9ea3-846a99343f89/files/6929daf7-a918-4780-aef1-d60f6b6b02c6.jpg"
+            alt="ИНФО-БЕЗОПАСНОСТЬ.РФ"
+            className="w-7 h-7 object-cover border border-white/20"
+          />
           <span className="font-mono text-xs text-cyber-green tracking-widest font-semibold">ИНФО-БЕЗОПАСНОСТЬ.РФ</span>
         </NavLink>
 
