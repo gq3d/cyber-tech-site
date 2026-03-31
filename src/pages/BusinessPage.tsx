@@ -8,8 +8,8 @@ const PLANS = [
     icon: "Building",
     badge: "SMB",
     title: "Малый офис",
-    subtitle: "До 10 сотрудников",
-    price: "9 900 ₽",
+    subtitle: "До 3 рабочих мест",
+    price: "12 900 ₽",
     period: "/ месяц",
     features: [
       "Изолированная рабочая сеть",
@@ -25,8 +25,8 @@ const PLANS = [
     icon: "Briefcase",
     badge: "BUSINESS",
     title: "Офис",
-    subtitle: "10–100 сотрудников",
-    price: "от 29 900 ₽",
+    subtitle: "От 3 до 15 рабочих мест",
+    price: "от 29 000 ₽",
     period: "/ месяц",
     highlight: true,
     features: [
