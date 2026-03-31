@@ -32,9 +32,8 @@ export default function ContactPage() {
           <div className="font-mono text-xs text-white/30 mb-6 tracking-widest">// КОНТАКТЫ</div>
           <div className="space-y-5">
             {[
-              { icon: "Mail", label: "Email", value: "info@инфо-безопасность.рф", href: "mailto:info@инфо-безопасность.рф" },
               { icon: "MessageSquare", label: "Telegram", value: "@secureinfosupport", href: "https://t.me/secureinfosupport" },
-              { icon: "Clock", label: "Часы работы", value: "Пн–Пт 9:00–20:00 МСК", href: null },
+              { icon: "Clock", label: "Часы работы", value: "Круглосуточно", href: null },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-4">
                 <div className="w-10 h-10 border border-white/15 flex items-center justify-center shrink-0">

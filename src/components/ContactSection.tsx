@@ -39,17 +39,6 @@ export default function ContactSection() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 border border-cyber-green border-opacity-20 flex items-center justify-center shrink-0">
-                    <Icon name="Mail" size={13} className="text-cyber-green opacity-50" />
-                  </div>
-                  <a
-                    href="mailto:info@инфо-безопасность.рф"
-                    className="font-mono text-sm text-cyber-green opacity-65 hover:opacity-100 transition-opacity"
-                  >
-                    info@инфо-безопасность.рф
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 border border-cyber-green border-opacity-20 flex items-center justify-center shrink-0">
                     <Icon name="MessageSquare" size={13} className="text-cyber-green opacity-50" />
                   </div>
                   <a
@@ -65,7 +54,7 @@ export default function ContactSection() {
                   <div className="w-8 h-8 border border-cyber-green border-opacity-20 flex items-center justify-center shrink-0">
                     <Icon name="Clock" size={13} className="text-cyber-green opacity-50" />
                   </div>
-                  <span className="font-mono text-sm text-cyber-green opacity-50">Пн–Пт 9:00–20:00 МСК</span>
+                  <span className="font-mono text-sm text-cyber-green opacity-50">Круглосуточно</span>
                 </div>
               </div>
             </div>
