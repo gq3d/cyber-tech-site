@@ -105,6 +105,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <main className="flex-1 overflow-auto">
         {children}
       </main>
+
+      {/* Floating Telegram button */}
+      <a
+        href="https://t.me/secureinfosupport"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-white text-black text-sm font-medium px-4 py-3 shadow-lg hover:bg-white/90 transition-all"
+        style={{ bottom: "5.5rem" }}
+      >
+        <Icon name="Send" size={15} />
+        <span className="hidden sm:inline">Telegram</span>
+      </a>
     </div>
   );
 }
