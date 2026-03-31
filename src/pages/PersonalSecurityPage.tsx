@@ -183,24 +183,15 @@ export default function PersonalSecurityPage() {
           <div className="text-base font-semibold text-white mb-1">Не знаете, какой тариф выбрать?</div>
           <div className="text-sm text-white/45">Расскажите о своей ситуации — подберём оптимальное решение</div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <a
-            href="https://t.me/secureinfosupport"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 border border-white/30 text-white text-sm font-medium px-5 py-3 hover:bg-white/10 transition-all"
-          >
-            <Icon name="Send" size={14} />
-            Telegram
-          </a>
-          <button
-            onClick={() => navigate("/contact")}
-            className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 border border-white/15 text-white/50 text-sm font-medium px-5 py-3 hover:bg-white/10 hover:text-white transition-all"
-          >
-            <Icon name="MessageSquare" size={14} />
-            Написать нам
-          </button>
-        </div>
+        <a
+          href="https://t.me/secureinfosupport"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 border border-white/30 text-white text-sm font-medium px-5 py-3 hover:bg-white/10 transition-all"
+        >
+          <Icon name="Send" size={14} />
+          Telegram
+        </a>
       </div>
     </div>
   );
