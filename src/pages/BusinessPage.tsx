@@ -102,10 +102,10 @@ export default function BusinessPage() {
         <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
           BUSINESS SECURITY
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
           Безопасность для бизнеса
         </h1>
-        <p className="text-base text-white/50 max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-base text-white/50 max-w-xl leading-relaxed">
           Защита корпоративной инфраструктуры: от малого офиса до распределённой сети с несколькими ЦОД.
         </p>
       </div>
@@ -131,7 +131,7 @@ export default function BusinessPage() {
         <span className="text-sm text-white/30">Развёртывание от 1 дня</span>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4 mb-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
         {PLANS.map((plan) => (
           <div
             key={plan.id}
@@ -186,7 +186,7 @@ export default function BusinessPage() {
         </div>
         <button
           onClick={() => navigate("/contact")}
-          className="shrink-0 flex items-center gap-2 border border-white/30 text-white text-sm font-medium px-5 py-2.5 hover:bg-white/10 transition-all"
+          className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 border border-white/30 text-white text-sm font-medium px-5 py-3 hover:bg-white/10 transition-all"
         >
           <Icon name="MessageSquare" size={14} />
           Написать нам

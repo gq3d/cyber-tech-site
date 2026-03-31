@@ -15,11 +15,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-cyber-blue flex flex-col">
+    <div className="min-h-screen bg-black flex flex-col">
       {/* Top bar */}
       <header className="h-14 border-b border-white/10 flex items-center justify-between px-4 bg-black shrink-0 z-30 sticky top-0">
-        <NavLink to="/" className="flex items-center gap-2">
-          <svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+        <NavLink to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
+          <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
             <rect width="32" height="32" fill="#000000"/>
             <text
               x="16"
@@ -32,7 +32,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               letterSpacing="1"
             >ИБ</text>
           </svg>
-          <span className="font-sans text-sm text-white font-semibold tracking-wide">ИНФО-БЕЗОПАСНОСТЬ.РФ</span>
+          <span className="font-sans text-sm text-white font-semibold tracking-wide hidden sm:inline">
+            ИНФО-БЕЗОПАСНОСТЬ.РФ
+          </span>
+          <span className="font-sans text-sm text-white font-semibold tracking-wide sm:hidden">
+            ИНФО-БЕЗ.РФ
+          </span>
         </NavLink>
 
         {/* Desktop nav */}
@@ -51,7 +56,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     : "text-white/40 hover:text-white/70 border border-transparent"
                 }`}
               >
-                <Icon name={item.icon} size={12} />
+                <Icon name={item.icon} size={14} />
                 {item.label}
               </NavLink>
             );
@@ -60,36 +65,39 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile burger */}
         <button
-          className="md:hidden text-white/50 hover:text-white"
+          className="md:hidden p-2 -mr-2 text-white/50 hover:text-white transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Меню"
         >
-          <Icon name={mobileOpen ? "X" : "Menu"} size={18} />
+          <Icon name={mobileOpen ? "X" : "Menu"} size={22} />
         </button>
       </header>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 top-14 bg-black/98 z-20 flex flex-col p-4 gap-2">
-          {NAV_ITEMS.map((item) => {
-            const active = item.exact
-              ? location.pathname === item.path
-              : location.pathname.startsWith(item.path);
-            return (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3.5 text-base border transition-all ${
-                  active
-                    ? "text-white bg-white/10 border-white/25"
-                    : "text-white/40 border-white/10"
-                }`}
-              >
-                <Icon name={item.icon} size={16} />
-                {item.label}
-              </NavLink>
-            );
-          })}
+        <div className="md:hidden fixed inset-0 top-14 bg-black z-20 flex flex-col overflow-y-auto">
+          <nav className="flex flex-col p-4 gap-1">
+            {NAV_ITEMS.map((item) => {
+              const active = item.exact
+                ? location.pathname === item.path
+                : location.pathname.startsWith(item.path);
+              return (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-4 text-base border transition-all ${
+                    active
+                      ? "text-white bg-white/10 border-white/25"
+                      : "text-white/50 border-white/10 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  <Icon name={item.icon} size={18} />
+                  {item.label}
+                </NavLink>
+              );
+            })}
+          </nav>
         </div>
       )}
 

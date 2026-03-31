@@ -19,10 +19,10 @@ export default function CapabilitiesListPage() {
         <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
           TECHNOLOGIES
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
           Технологии и возможности
         </h1>
-        <p className="text-base text-white/50 max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-base text-white/50 max-w-xl leading-relaxed">
           Технические детали каждого компонента: протоколы, алгоритмы, архитектурные решения.
         </p>
       </div>

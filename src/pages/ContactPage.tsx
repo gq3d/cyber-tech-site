@@ -18,10 +18,10 @@ export default function ContactPage() {
         <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
           CONTACT
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
           Свяжитесь с нами
         </h1>
-        <p className="text-base text-white/50 max-w-lg leading-relaxed">
+        <p className="text-sm sm:text-base text-white/50 max-w-lg leading-relaxed">
           Расскажите о задаче — инженер ответит в течение нескольких часов и предложит подходящее решение.
         </p>
       </div>
@@ -44,11 +44,11 @@ export default function ContactPage() {
                   <div className="text-xs text-white/30 mb-0.5">{item.label}</div>
                   {item.href ? (
                     <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
-                      className="text-base text-white/70 hover:text-white transition-colors">
+                      className="text-sm sm:text-base text-white/70 hover:text-white transition-colors break-all">
                       {item.value}
                     </a>
                   ) : (
-                    <span className="text-base text-white/55">{item.value}</span>
+                    <span className="text-sm sm:text-base text-white/55">{item.value}</span>
                   )}
                 </div>
               </div>
@@ -88,9 +88,9 @@ export default function ContactPage() {
               { label: "Время реакции", value: "< 24 ч" },
               { label: "Конфиденциальность", value: "NDA обязательно" },
             ].map((row) => (
-              <div key={row.label} className="flex items-center justify-between pb-4 border-b border-white/5 last:border-0 last:pb-0">
+              <div key={row.label} className="flex items-center justify-between gap-4 pb-4 border-b border-white/5 last:border-0 last:pb-0">
                 <span className="text-sm text-white/40">{row.label}</span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-white" />
                   <span className="text-sm font-medium text-white/75">{row.value}</span>
                 </div>

@@ -70,19 +70,21 @@ export default function HomePage() {
           <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
           <span className="font-mono text-xs text-white/40 tracking-widest">СИСТЕМА АКТИВНА</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-sans font-bold text-white leading-tight mb-3">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans font-bold text-white leading-tight mb-3">
           Защита цифрового<br />
           <span className="text-white/60">пространства</span>
         </h1>
-        <p className="text-base text-white/50 max-w-lg leading-relaxed mb-6">
+        <p className="text-sm sm:text-base text-white/50 max-w-lg leading-relaxed mb-6">
           Комплексные решения для личной и корпоративной кибербезопасности — от шифрования трафика до защиты корпоративной инфраструктуры
         </p>
 
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-0 border border-white/10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 border border-white/10">
           {STATS.map((s, i) => (
-            <div key={s.label} className={`flex flex-col items-center py-3 px-2 ${i < 3 ? "border-r border-white/10" : ""}`}>
-              <span className="font-mono text-sm md:text-base font-bold text-white">{s.value}</span>
+            <div key={s.label} className={`flex flex-col items-center py-3 px-2 border-white/10 ${
+              i % 2 === 0 ? "border-r" : ""
+            } ${i < 2 ? "border-b sm:border-b-0" : ""} sm:border-r last:border-r-0`}>
+              <span className="font-mono text-sm font-bold text-white">{s.value}</span>
               <span className="text-xs text-white/30 mt-0.5 text-center">{s.label}</span>
             </div>
           ))}
