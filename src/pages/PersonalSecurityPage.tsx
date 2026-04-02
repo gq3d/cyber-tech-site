@@ -101,7 +101,7 @@ export default function PersonalSecurityPage() {
         <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
           PERSONAL SECURITY
         </span>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight text-amber-400">
           Личная цифровая безопасность
         </h1>
         <p className="text-sm sm:text-base text-white/50 max-w-xl leading-relaxed">
@@ -111,7 +111,7 @@ export default function PersonalSecurityPage() {
 
       {/* Plans */}
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-xl font-bold text-white">Выберите тариф</h2>
+        <h2 className="text-xl font-bold text-amber-400">Выберите тариф</h2>
         <span className="text-sm text-white/30">Подключение за 24 часа</span>
       </div>
 
