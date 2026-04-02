@@ -79,9 +79,9 @@ export default function HomePage() {
         {/* Payment & connection info */}
         <div className="border border-white/10 p-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3" style={{ background: "rgba(255,255,255,0.03)" }}>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-white/45">
-            <span className="flex items-center gap-1.5"><Icon name="CreditCard" size={12} className="shrink-0" /> Любой способ оплаты</span>
-            <span className="flex items-center gap-1.5"><Icon name="Zap" size={12} className="shrink-0" /> Подключение за 15–30 минут</span>
-            <span className="flex items-center gap-1.5"><Icon name="MessageCircle" size={12} className="shrink-0" /> Установка через менеджера</span>
+            <span className="flex items-center gap-1.5 text-lg font-extrabold text-amber-400"><Icon name="CreditCard" size={12} className="shrink-0" /> Любой способ оплаты</span>
+            <span className="flex items-center gap-1.5 font-extrabold text-[#ffffff]"><Icon name="Zap" size={12} className="shrink-0" /> Подключение за 15–30 минут</span>
+            <span className="flex items-center gap-1.5 font-extrabold text-[#ffffff]"><Icon name="MessageCircle" size={12} className="shrink-0" /> Установка через менеджера</span>
           </div>
           <div className="flex gap-2 shrink-0">
             <a href="https://t.me/secureinfosupport" target="_blank" rel="noopener noreferrer"
