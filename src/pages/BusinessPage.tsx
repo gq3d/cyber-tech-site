@@ -131,48 +131,70 @@ export default function BusinessPage() {
         <span className="text-sm text-white/30">Развёртывание от 1 дня</span>
       </div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10">
         {PLANS.map((plan) => (
           <div
             key={plan.id}
             onClick={() => setActivePlan(activePlan === plan.id ? null : plan.id)}
-            className={`relative flex flex-col border cursor-pointer transition-all duration-200 bg-white/[0.02] ${
-              plan.highlight ? "ring-1 ring-white/20" : ""
-            } ${activePlan === plan.id ? "border-white/50" : "border-white/10 hover:border-white/30"}`}
+            className={`relative flex flex-col cursor-pointer transition-all duration-300 group
+              ${plan.highlight
+                ? "border border-cyber-green bg-cyber-green/[0.04] shadow-[0_0_32px_-8px_rgba(0,255,136,0.18)]"
+                : "border bg-white/[0.02] hover:bg-cyber-green/[0.03]"
+              }
+              ${activePlan === plan.id
+                ? "border-cyber-green shadow-[0_0_24px_-6px_rgba(0,255,136,0.25)]"
+                : plan.highlight
+                  ? "border-cyber-green/50 hover:border-cyber-green"
+                  : "border-white/10 hover:border-cyber-green/40"
+              }`}
           >
-            {plan.highlight && <div className="absolute -top-px left-0 right-0 h-0.5 bg-white/50" />}
+            {/* Top accent line */}
             {plan.highlight && (
-              <div className="absolute top-3 right-3">
-                <span className="font-mono text-[10px] bg-white/10 text-white/60 border border-white/20 px-1.5 py-0.5">POPULAR</span>
+              <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-green to-transparent" />
+            )}
+            {/* Popular badge */}
+            {plan.highlight && (
+              <div className="absolute top-4 right-4">
+                <span className="font-mono text-[9px] bg-cyber-green/15 text-cyber-green border border-cyber-green/30 px-2 py-0.5 tracking-widest">POPULAR</span>
               </div>
             )}
-            <div className="p-5 border-b border-white/10">
-              <div className="flex items-center gap-2 mb-4">
-                <Icon name={plan.icon} size={15} className="text-white/50" />
-                <span className="font-mono text-[10px] tracking-widest text-white/30">{plan.badge}</span>
+
+            {/* Header */}
+            <div className={`p-5 border-b ${plan.highlight ? "border-cyber-green/20" : "border-white/8"}`}>
+              <div className="flex items-center gap-2 mb-5">
+                <div className={`w-7 h-7 flex items-center justify-center border ${plan.highlight ? "border-cyber-green/40 text-cyber-green" : "border-white/15 text-white/40 group-hover:border-cyber-green/30 group-hover:text-cyber-green/70"} transition-all duration-300`}>
+                  <Icon name={plan.icon} size={13} />
+                </div>
+                <span className={`font-mono text-[10px] tracking-widest ${plan.highlight ? "text-cyber-green/60" : "text-white/25"}`}>{plan.badge}</span>
               </div>
-              <div className="text-lg font-bold text-white mb-0.5">{plan.title}</div>
-              <div className="text-sm text-white/35 mb-4">{plan.subtitle}</div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-white">{plan.price}</span>
-                {plan.period && <span className="text-sm text-white/30">{plan.period}</span>}
+              <div className="text-base font-bold text-white mb-0.5">{plan.title}</div>
+              <div className="font-mono text-xs text-white/30 mb-5">{plan.subtitle}</div>
+              <div className="flex items-baseline gap-1.5">
+                <span className={`text-3xl font-bold tracking-tight ${plan.highlight ? "text-cyber-green" : "text-white"}`}>{plan.price}</span>
+                {plan.period && <span className="font-mono text-xs text-white/25">{plan.period}</span>}
               </div>
             </div>
-            <div className="p-5 flex flex-col gap-2.5 flex-1">
+
+            {/* Features */}
+            <div className="p-5 flex flex-col gap-3 flex-1">
               {plan.features.map((feat) => (
                 <div key={feat} className="flex items-start gap-2.5">
-                  <Icon name="Check" size={13} className="mt-0.5 shrink-0 text-white/50" />
-                  <span className="text-sm text-white/55 leading-snug">{feat}</span>
+                  <Icon name="Check" size={12} className={`mt-0.5 shrink-0 ${plan.highlight ? "text-cyber-green" : "text-white/35 group-hover:text-cyber-green/50"} transition-colors duration-300`} />
+                  <span className="text-sm text-white/50 leading-snug">{feat}</span>
                 </div>
               ))}
             </div>
+
+            {/* Button */}
             <div className="p-5 pt-0">
-              <button className={`w-full py-2.5 text-sm font-medium border transition-all ${
-                activePlan === plan.id
-                  ? "text-white border-white/50 bg-white/10"
-                  : "text-white/40 border-white/15 hover:border-white/40 hover:text-white/70"
-              }`}>
-                {activePlan === plan.id ? "Выбрано — связаться" : "Выбрать"}
+              <button className={`w-full py-2.5 font-mono text-xs font-bold tracking-wider transition-all duration-200
+                ${activePlan === plan.id
+                  ? "bg-cyber-green text-cyber-blue"
+                  : plan.highlight
+                    ? "border border-cyber-green/50 text-cyber-green hover:bg-cyber-green hover:text-cyber-blue"
+                    : "border border-white/15 text-white/35 hover:border-cyber-green/40 hover:text-cyber-green/70"
+                }`}>
+                {activePlan === plan.id ? "ВЫБРАНО — СВЯЗАТЬСЯ →" : "ВЫБРАТЬ"}
               </button>
             </div>
           </div>

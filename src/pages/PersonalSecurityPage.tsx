@@ -108,43 +108,65 @@ export default function PersonalSecurityPage() {
         <span className="text-sm text-white/30">Подключение за 24 часа</span>
       </div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 mb-12">
         {PLANS.map((plan) => (
           <div
             key={plan.id}
-            className={`relative flex flex-col border bg-white/[0.02] ${
-              plan.highlight ? "ring-1 ring-white/20 border-white/20" : "border-white/10"
-            }`}
+            className={`relative flex flex-col transition-all duration-300 group
+              ${plan.highlight
+                ? "border border-cyber-green bg-cyber-green/[0.04] shadow-[0_0_32px_-8px_rgba(0,255,136,0.18)] hover:shadow-[0_0_40px_-6px_rgba(0,255,136,0.28)] hover:border-cyber-green"
+                : "border border-white/10 bg-white/[0.02] hover:border-cyber-green/40 hover:bg-cyber-green/[0.03]"
+              }`}
           >
-            {plan.highlight && <div className="absolute -top-px left-0 right-0 h-0.5 bg-white/50" />}
+            {/* Top accent line */}
             {plan.highlight && (
-              <div className="absolute top-3 right-3">
-                <span className="font-mono text-[10px] bg-white/10 text-white/60 border border-white/20 px-1.5 py-0.5">POPULAR</span>
+              <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-green to-transparent" />
+            )}
+            {/* Popular badge */}
+            {plan.highlight && (
+              <div className="absolute top-4 right-4">
+                <span className="font-mono text-[9px] bg-cyber-green/15 text-cyber-green border border-cyber-green/30 px-2 py-0.5 tracking-widest">POPULAR</span>
               </div>
             )}
 
-            <div className="p-5 border-b border-white/10">
-              <div className="flex items-center gap-2 mb-4">
-                <Icon name={plan.icon} size={15} className="text-white/50" />
-                <span className="font-mono text-[10px] tracking-widest text-white/30">{plan.badge}</span>
+            {/* Header */}
+            <div className={`p-5 border-b ${plan.highlight ? "border-cyber-green/20" : "border-white/8"}`}>
+              <div className="flex items-center gap-2 mb-5">
+                <div className={`w-7 h-7 flex items-center justify-center border transition-all duration-300 ${plan.highlight ? "border-cyber-green/40 text-cyber-green" : "border-white/15 text-white/40 group-hover:border-cyber-green/30 group-hover:text-cyber-green/70"}`}>
+                  <Icon name={plan.icon} size={13} />
+                </div>
+                <span className={`font-mono text-[10px] tracking-widest ${plan.highlight ? "text-cyber-green/60" : "text-white/25"}`}>{plan.badge}</span>
               </div>
-              <div className="text-lg font-bold text-white mb-4">{plan.title}</div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-white">{plan.price}</span>
-                <span className="text-sm text-white/30">{plan.period}</span>
+              <div className="text-base font-bold text-white mb-5">{plan.title}</div>
+              <div className="flex items-baseline gap-1.5">
+                <span className={`text-3xl font-bold tracking-tight ${plan.highlight ? "text-cyber-green" : "text-white"}`}>{plan.price}</span>
+                <span className="font-mono text-xs text-white/25">{plan.period}</span>
               </div>
             </div>
 
-            <div className="p-5 flex flex-col gap-2.5 flex-1">
+            {/* Features */}
+            <div className="p-5 flex flex-col gap-3 flex-1">
               {plan.features.map((feat) => (
                 <div key={feat} className="flex items-start gap-2.5">
-                  <Icon name="Check" size={13} className="mt-0.5 shrink-0 text-white/50" />
-                  <span className="text-sm text-white/55 leading-snug">{feat}</span>
+                  <Icon name="Check" size={12} className={`mt-0.5 shrink-0 transition-colors duration-300 ${plan.highlight ? "text-cyber-green" : "text-white/35 group-hover:text-cyber-green/50"}`} />
+                  <span className="text-sm text-white/50 leading-snug">{feat}</span>
                 </div>
               ))}
             </div>
 
-
+            {/* CTA button */}
+            <div className="p-5 pt-0">
+              <a
+                href="/contact"
+                className={`block w-full py-2.5 text-center font-mono text-xs font-bold tracking-wider transition-all duration-200
+                  ${plan.highlight
+                    ? "bg-cyber-green text-cyber-blue hover:bg-cyber-green/90"
+                    : "border border-white/15 text-white/35 hover:border-cyber-green/40 hover:text-cyber-green/70"
+                  }`}
+              >
+                {plan.highlight ? "ВЫБРАТЬ →" : "ПОДРОБНЕЕ"}
+              </a>
+            </div>
           </div>
         ))}
       </div>
