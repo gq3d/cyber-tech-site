@@ -61,7 +61,7 @@ export default function HomePage() {
   return (
     <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
       {/* Hero block */}
-      <div className="mb-8 border border-white/10 bg-white/[0.02] p-6 md:p-8">
+      <div className="mb-8 border border-white/10 bg-slate-900 p-6 md:p-8">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
           <span className="font-mono text-xs text-white/40 tracking-widest">СИСТЕМА АКТИВНА</span>
