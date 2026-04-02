@@ -125,11 +125,11 @@ export default function HomePage() {
         ))}
         {/* Non-commercial cards */}
         {SECTIONS.filter(s => !s.commercial).map((section) => (
-          <button className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-80 bg-slate-900"
+          <button
             key={section.path}
             onClick={() => navigate(section.path)}
             style={{ border: "1px solid rgba(255,255,255,0.1)" }}
-            className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-80"
+            className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-80 bg-slate-900"
           >
             <div className="flex items-start justify-between mb-5">
               <div className="w-9 h-9 flex items-center justify-center text-white/50" style={{ border: "1px solid rgba(255,255,255,0.15)" }}>
