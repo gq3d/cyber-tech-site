@@ -71,8 +71,11 @@ export default function HomePage() {
           Защита цифрового<br />
           <span className="text-white/60">пространства</span>
         </h1>
-        <p className="text-sm sm:text-base text-white/50 max-w-lg leading-relaxed mb-6">
+        <p className="text-sm sm:text-base text-white/50 max-w-lg leading-relaxed mb-3">
           Комплексные решения для личной и корпоративной кибербезопасности — от шифрования трафика до защиты корпоративной инфраструктуры
+        </p>
+        <p className="text-sm sm:text-base font-semibold text-white mb-6">
+          Наш VPN работает всегда и везде — Гарантия
         </p>
 
         {/* Payment & connection info */}
