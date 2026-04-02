@@ -79,7 +79,7 @@ export default function PersonalSecurityPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-slate-900 px-4 md:px-8 py-8 max-w-5xl mx-auto">
+    <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
       {/* Back */}
       <button
         onClick={() => navigate("/")}

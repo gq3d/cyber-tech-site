@@ -15,7 +15,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
+    <div className="min-h-screen bg-black flex flex-col">
       {/* Top bar */}
       <header className="h-14 border-b border-white/10 flex items-center justify-between px-4 bg-slate-900 shrink-0 z-30 sticky top-0">
         <NavLink to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>

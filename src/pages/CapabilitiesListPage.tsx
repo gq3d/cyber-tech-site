@@ -6,7 +6,7 @@ export default function CapabilitiesListPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-slate-900 px-4 md:px-8 py-8 max-w-5xl mx-auto">
+    <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-2 text-sm text-white/40 hover:text-white/70 mb-8 transition-colors"
