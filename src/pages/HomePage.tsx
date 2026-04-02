@@ -74,7 +74,7 @@ export default function HomePage() {
         <p className="text-sm sm:text-base text-white/50 max-w-lg leading-relaxed mb-3">
           Комплексные решения для личной и корпоративной кибербезопасности
         </p>
-        <p className="text-sm sm:text-base text-white mb-6 font-extrabold">Наш PVN работает всегда и везде — Гарантия</p>
+        <p className="text-sm sm:text-base mb-6 font-extrabold text-amber-400">Наш PVN работает всегда и везде — Гарантия</p>
 
         {/* Payment & connection info */}
         <div className="border border-white/10 p-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3" style={{ background: "rgba(255,255,255,0.03)" }}>
