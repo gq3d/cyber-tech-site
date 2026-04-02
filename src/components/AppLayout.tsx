@@ -19,19 +19,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {/* Top bar */}
       <header className="h-14 border-b border-white/10 flex items-center justify-between px-4 bg-slate-900 shrink-0 z-30 sticky top-0">
         <NavLink to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
-          <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-            <rect width="32" height="32" fill="#000000"/>
-            <text
-              x="16"
-              y="23"
-              fontFamily="Arial, sans-serif"
-              fontSize="16"
-              fontWeight="bold"
-              fill="#ffffff"
-              textAnchor="middle"
-              letterSpacing="1"
-            >ИБ</text>
-          </svg>
+          <img
+            src="https://cdn.poehali.dev/projects/233dcfd3-64d0-41d4-9ea3-846a99343f89/bucket/4f19e4f5-de21-4d1e-af50-8140c1ffea5b.png"
+            alt="ИБ"
+            width="32"
+            height="32"
+            className="shrink-0"
+          />
           <span className="font-sans text-sm text-white font-semibold tracking-wide hidden sm:inline">
             ИНФО-БЕЗОПАСНОСТЬ.РФ
           </span>
