@@ -91,7 +91,7 @@ export default function HomePage() {
       <div className="grid sm:grid-cols-2 gap-3 mb-8">
         {/* Commercial cards */}
         {SECTIONS.filter(s => s.commercial).map((section) => (
-          <button
+          <button className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-90 bg-slate-900"
             key={section.path}
             onClick={() => navigate(section.path)}
             style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.35)" }}
@@ -125,7 +125,7 @@ export default function HomePage() {
         ))}
         {/* Non-commercial cards */}
         {SECTIONS.filter(s => !s.commercial).map((section) => (
-          <button
+          <button className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-80 bg-slate-900"
             key={section.path}
             onClick={() => navigate(section.path)}
             style={{ border: "1px solid rgba(255,255,255,0.1)" }}
