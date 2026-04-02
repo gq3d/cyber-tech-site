@@ -85,63 +85,60 @@ export default function HomePage() {
 
       {/* Navigation cards */}
       <div className="grid sm:grid-cols-2 gap-3 mb-8">
-        {SECTIONS.map((section) => (
+        {/* Commercial cards */}
+        {SECTIONS.filter(s => s.commercial).map((section) => (
           <button
             key={section.path}
             onClick={() => navigate(section.path)}
-            className={`relative text-left p-6 transition-all duration-300 group overflow-hidden
-              ${section.commercial
-                ? "border border-white/40 bg-white/[0.05] hover:border-white/80 hover:bg-white/[0.08] hover:shadow-[0_0_32px_-8px_rgba(255,255,255,0.15)]"
-                : "border border-white/10 bg-white/[0.02] hover:border-white/25"
-              }`}
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.35)" }}
+            className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-90"
           >
-            {/* Accent top line for commercial */}
-            {section.commercial && (
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-            )}
-
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-40" />
             <div className="flex items-start justify-between mb-5">
-              <div className={`w-9 h-9 flex items-center justify-center border transition-all duration-300
-                ${section.commercial
-                  ? "border-white/50 text-white group-hover:border-white group-hover:bg-white/10"
-                  : "border-white/15 text-white/50 group-hover:border-white/30"
-                }`}>
+              <div className="w-9 h-9 flex items-center justify-center text-white" style={{ border: "1px solid rgba(255,255,255,0.5)" }}>
                 <Icon name={section.icon} size={16} />
               </div>
-              <Icon
-                name="ArrowRight"
-                size={14}
-                className="mt-1 text-white/40 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
-              />
+              <Icon name="ArrowRight" size={14} className="mt-1 text-white opacity-0 group-hover:opacity-60 transition-all duration-300 group-hover:translate-x-0.5" />
             </div>
-
-            <div className="text-base font-semibold text-white mb-2">
-              {section.title}
-            </div>
-            <p className={`text-sm leading-relaxed mb-4 ${section.commercial ? "text-white/55" : "text-white/40"}`}>
-              {section.desc}
-            </p>
-
+            <div className="text-base font-semibold text-white mb-2">{section.title}</div>
+            <p className="text-sm text-white/55 leading-relaxed mb-4">{section.desc}</p>
             <div className="flex flex-wrap gap-1.5 mb-4">
               {section.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className={`font-mono text-[10px] border px-2 py-0.5 transition-colors duration-300
-                    ${section.commercial
-                      ? "border-white/30 text-white/50 group-hover:border-white/50 group-hover:text-white/70"
-                      : "border-white/12 text-white/25"
-                    }`}
-                >
+                <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-white/60" style={{ border: "1px solid rgba(255,255,255,0.3)" }}>
                   {tag}
                 </span>
               ))}
             </div>
-
             {section.cta && (
-              <div className="font-mono text-xs font-bold tracking-wider text-white/50 group-hover:text-white transition-colors duration-300">
+              <div className="font-mono text-xs font-bold tracking-wider text-white/60 group-hover:text-white transition-colors duration-300">
                 {section.cta}
               </div>
             )}
+          </button>
+        ))}
+        {/* Non-commercial cards */}
+        {SECTIONS.filter(s => !s.commercial).map((section) => (
+          <button
+            key={section.path}
+            onClick={() => navigate(section.path)}
+            style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+            className="relative text-left p-6 transition-all duration-300 group overflow-hidden hover:opacity-80"
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-9 h-9 flex items-center justify-center text-white/50" style={{ border: "1px solid rgba(255,255,255,0.15)" }}>
+                <Icon name={section.icon} size={16} />
+              </div>
+              <Icon name="ArrowRight" size={14} className="mt-1 text-white/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+            </div>
+            <div className="text-base font-semibold text-white mb-2">{section.title}</div>
+            <p className="text-sm text-white/40 leading-relaxed mb-4">{section.desc}</p>
+            <div className="flex flex-wrap gap-1.5">
+              {section.tags.map((tag) => (
+                <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-white/25" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
           </button>
         ))}
       </div>
