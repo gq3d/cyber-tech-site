@@ -98,15 +98,15 @@ export default function PersonalSecurityPage() {
 
       {/* Header */}
       <div className="mb-10">
-        <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
+        <span className="font-mono text-xs tracking-widest border border-white/15 px-2 py-1 inline-block mb-4 text-[#ffffff]">
           PERSONAL SECURITY
         </span>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight text-amber-400">
           Личная цифровая безопасность
         </h1>
-        <p className="text-sm sm:text-base text-white/50 max-w-xl leading-relaxed">
-          Полный контроль над вашим цифровым присутствием. Ни один внешний наблюдатель не получит информацию о вашей активности в сети.
-        </p>
+        <p className="text-sm sm:text-base max-w-xl leading-relaxed text-[#ffffff]">Полный контроль над вашим цифровым присутствием. 
+Ни один внешний наблюдатель не получит информацию о вашей активности в сети.
+Сначала подключаете и проверяете - потом оплачиваете.</p>
       </div>
 
       {/* Plans */}
