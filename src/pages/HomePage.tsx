@@ -150,13 +150,67 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Bottom status */}
-      <div className="flex items-center justify-between border-t border-white/10 pt-4">
-        <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 bg-white rounded-full" />
-          <span className="text-sm text-white/30">Все системы работают</span>
+      {/* Footer */}
+      <div className="border-t border-white/10 mt-2" style={{ background: "#0f172a" }}>
+        <div className="grid sm:grid-cols-3 gap-6 px-0 py-8">
+          {/* Brand */}
+          <div>
+            <div className="text-sm font-semibold text-white mb-2">ИНФО-БЕЗОПАСНОСТЬ.РФ</div>
+            <p className="text-xs text-white/35 leading-relaxed mb-3">
+              Инженерная защита сетевой инфраструктуры. Без маркетинга — только технические решения.
+            </p>
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <span className="text-xs text-white/30">Все системы работают</span>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <div className="font-mono text-[10px] text-white/25 tracking-widest mb-3">РАЗДЕЛЫ</div>
+            <div className="space-y-2">
+              {[
+                { label: "Личная безопасность", href: "/personal-security" },
+                { label: "Безопасность для бизнеса", href: "/business" },
+                { label: "Технологии", href: "/capabilities" },
+                { label: "Связаться", href: "/contact" },
+              ].map((item) => (
+                <a key={item.label} href={item.href} className="block text-xs text-white/35 hover:text-white/70 transition-colors">
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contacts */}
+          <div>
+            <div className="font-mono text-[10px] text-white/25 tracking-widest mb-3">КОНТАКТЫ</div>
+            <div className="space-y-2.5">
+              <a href="https://t.me/secureinfosupport" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-white/45 hover:text-white/80 transition-colors">
+                <Icon name="Send" size={12} />
+                @secureinfosupport
+              </a>
+              <div className="flex items-center gap-2 text-xs text-white/35">
+                <Icon name="Clock" size={12} />
+                Круглосуточно, 24/7
+              </div>
+              <div className="flex items-center gap-2 text-xs text-white/35">
+                <Icon name="MessageSquare" size={12} />
+                Ответ до 24 часов
+              </div>
+              <div className="flex items-center gap-2 text-xs text-white/35">
+                <Icon name="Lock" size={12} />
+                NDA до начала работ
+              </div>
+            </div>
+          </div>
         </div>
-        <span className="font-mono text-xs text-white/20">v2.4.1</span>
+
+        <div className="border-t border-white/8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span className="font-mono text-[11px] text-white/20">© 2025 инфо-безопасность.рф · Все права защищены</span>
+          <span className="font-mono text-[11px] text-white/15">v2.4.1</span>
+        </div>
       </div>
     </div>
   );
