@@ -59,7 +59,8 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
+    <div className="min-h-full bg-black flex flex-col">
+    <div className="px-4 md:px-8 py-8 max-w-5xl mx-auto w-full">
       {/* Hero block */}
       <div className="mb-8 border border-white/10 bg-slate-900 p-6 md:p-8">
         <div className="flex items-center gap-2 mb-4">
@@ -150,9 +151,11 @@ export default function HomePage() {
         ))}
       </div>
 
+    </div>{/* end inner container */}
+
       {/* Footer */}
-      <div className="border-t border-white/10 mt-2" style={{ background: "#0f172a" }}>
-        <div className="grid sm:grid-cols-3 gap-6 px-0 py-8">
+      <div className="border-t border-white/10 mt-auto" style={{ background: "#0f172a" }}>
+        <div className="grid sm:grid-cols-3 gap-6 px-4 md:px-8 py-8 max-w-5xl mx-auto">
           {/* Brand */}
           <div>
             <div className="text-sm font-semibold text-white mb-2">ИНФО-БЕЗОПАСНОСТЬ.РФ</div>
@@ -207,7 +210,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="border-t border-white/8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="border-t border-white/8 py-4 px-4 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 max-w-5xl mx-auto">
           <span className="font-mono text-[11px] text-white/20">© 2025 инфо-безопасность.рф · Все права защищены</span>
           <span className="font-mono text-[11px] text-white/15">v2.4.1</span>
         </div>
