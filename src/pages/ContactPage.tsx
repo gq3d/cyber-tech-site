@@ -5,7 +5,7 @@ export default function ContactPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-4xl mx-auto">
+    <div className="min-h-full bg-slate-900 px-4 md:px-8 py-8 max-w-4xl mx-auto">
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-2 text-sm text-white/40 hover:text-white/70 mb-8 transition-colors"
@@ -28,7 +28,7 @@ export default function ContactPage() {
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Contacts */}
-        <div className="border border-white/10 bg-white/[0.02] p-6">
+        <div className="border border-white/10 bg-slate-800 p-6">
           <div className="font-mono text-xs text-white/30 mb-6 tracking-widest">// КОНТАКТЫ</div>
           <div className="space-y-5">
             {[
@@ -66,7 +66,7 @@ export default function ContactPage() {
         </div>
 
         {/* Status panel */}
-        <div className="border border-white/10 bg-white/[0.02]">
+        <div className="border border-white/10 bg-slate-800">
           <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/10">
             <div className="flex gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />

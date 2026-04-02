@@ -79,7 +79,7 @@ export default function PersonalSecurityPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
+    <div className="min-h-full bg-slate-900 px-4 md:px-8 py-8 max-w-5xl mx-auto">
       {/* Back */}
       <button
         onClick={() => navigate("/")}
@@ -115,7 +115,7 @@ export default function PersonalSecurityPage() {
             className={`relative flex flex-col transition-all duration-300 group
               ${plan.highlight
                 ? "border border-cyber-green bg-cyber-green/[0.04] shadow-[0_0_32px_-8px_rgba(0,255,136,0.18)] hover:shadow-[0_0_40px_-6px_rgba(0,255,136,0.28)] hover:border-cyber-green"
-                : "border border-white/10 bg-white/[0.02] hover:border-cyber-green/40 hover:bg-cyber-green/[0.03]"
+                : "border border-white/10 bg-slate-800 hover:border-cyber-green/40 hover:bg-cyber-green/[0.03]"
               }`}
           >
             {/* Top accent line */}
@@ -174,7 +174,7 @@ export default function PersonalSecurityPage() {
       {/* Features grid */}
       <div className="grid sm:grid-cols-2 gap-3 mb-12">
         {FEATURES.map((f) => (
-          <div key={f.title} className="border border-white/10 bg-white/[0.02] p-6">
+          <div key={f.title} className="border border-white/10 bg-slate-800 p-6">
             <div className="flex items-start gap-4">
               <div className="mt-0.5 text-white/60 shrink-0">
                 <Icon name={f.icon} size={20} />
@@ -189,7 +189,7 @@ export default function PersonalSecurityPage() {
       </div>
 
       {/* CTA */}
-      <div className="border border-white/10 bg-white/[0.02] p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="border border-white/10 bg-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <div className="text-base font-semibold text-white mb-1">Не знаете, какой тариф выбрать?</div>
           <div className="text-sm text-white/45">Расскажите о своей ситуации — подберём оптимальное решение</div>

@@ -15,7 +15,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-black flex flex-col">
+    <div className="min-h-screen bg-slate-900 flex flex-col">
       {/* Top bar */}
       <header className="h-14 border-b border-white/10 flex items-center justify-between px-4 bg-slate-900 shrink-0 z-30 sticky top-0">
         <NavLink to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
@@ -75,7 +75,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 top-14 bg-black z-20 flex flex-col overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-14 bg-slate-900 z-20 flex flex-col overflow-y-auto">
           <nav className="flex flex-col p-4 gap-1">
             {NAV_ITEMS.map((item) => {
               const active = item.exact

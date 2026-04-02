@@ -6,7 +6,7 @@ export default function CapabilitiesListPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
+    <div className="min-h-full bg-slate-900 px-4 md:px-8 py-8 max-w-5xl mx-auto">
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-2 text-sm text-white/40 hover:text-white/70 mb-8 transition-colors"
@@ -32,7 +32,7 @@ export default function CapabilitiesListPage() {
           <button
             key={cap.slug}
             onClick={() => navigate(`/capabilities/${cap.slug}`)}
-            className="text-left border border-white/10 hover:border-white/35 bg-white/[0.02] p-5 transition-all duration-200 group"
+            className="text-left border border-white/10 hover:border-white/35 bg-slate-800 p-5 transition-all duration-200 group"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="w-9 h-9 border border-white/15 flex items-center justify-center">
