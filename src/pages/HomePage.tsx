@@ -7,7 +7,8 @@ const SECTIONS = [
     icon: "ShieldCheck",
     badge: "PERSONAL",
     title: "Личная цифровая безопасность",
-    desc: "Анонимность, шифрование трафика, отсутствие цифрового следа и доступ к любым ресурсам. Тарифы от 555 ₽/мес",
+    desc: "Анонимность, шифрование трафика, отсутствие цифрового следа и доступ к любым ресурсам.",
+    price: "Тарифы от 555 ₽/мес",
     commercial: true,
     tags: ["Без цифрового следа", "Шифрование E2E", "Анонимность", "Свободный доступ"],
     cta: "Выбрать тариф →",
@@ -18,6 +19,7 @@ const SECTIONS = [
     badge: "BUSINESS",
     title: "Безопасность для бизнеса",
     desc: "Защита корпоративной инфраструктуры, сегментация сети, мониторинг и управление доступом",
+    price: "",
     commercial: true,
     tags: ["Малый офис", "Корпорация", "Zero Trust", "SIEM"],
     cta: "Смотреть тарифы →",
@@ -28,6 +30,7 @@ const SECTIONS = [
     badge: "TECH",
     title: "Технологии и возможности",
     desc: "Технические детали: протоколы, архитектура, алгоритмы шифрования и схемы работы",
+    price: "",
     commercial: false,
     tags: ["WireGuard", "AES-256", "eBPF", "Noise Protocol"],
     cta: null,
@@ -38,6 +41,7 @@ const SECTIONS = [
     badge: "CONTACT",
     title: "Связаться с нами",
     desc: "Консультация, подбор решения, подключение. Отвечаем в течение нескольких часов",
+    price: "",
     commercial: false,
     tags: ["Консультация", "Быстрый ответ", "Без обязательств"],
     cta: null,
@@ -101,7 +105,10 @@ export default function HomePage() {
               <Icon name="ArrowRight" size={14} className="mt-1 text-white opacity-0 group-hover:opacity-60 transition-all duration-300 group-hover:translate-x-0.5" />
             </div>
             <div className="text-base font-semibold text-white mb-2">{section.title}</div>
-            <p className="text-sm text-white/55 leading-relaxed mb-4">{section.desc}</p>
+            <p className="text-sm text-white/55 leading-relaxed mb-2">{section.desc}</p>
+            {section.price && (
+              <p className="text-sm font-bold text-white mb-4">{section.price}</p>
+            )}
             <div className="flex flex-wrap gap-1.5 mb-4">
               {section.tags.map((tag) => (
                 <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-white/60" style={{ border: "1px solid rgba(255,255,255,0.3)" }}>
