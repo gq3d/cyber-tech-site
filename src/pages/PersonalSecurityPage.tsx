@@ -112,7 +112,7 @@ export default function PersonalSecurityPage() {
       {/* Plans */}
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-xl font-bold text-amber-400">Выберите тариф</h2>
-        <span className="text-sm text-white/30">Подключение за 24 часа</span>
+        <span className="text-sm text-white/30">Подключение за 30 минут</span>
       </div>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 mb-12">
