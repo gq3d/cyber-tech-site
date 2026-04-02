@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { CAPABILITIES } from "@/data/capabilities";
+import { useMeta } from "@/hooks/useMeta";
 
 export default function CapabilitiesListPage() {
   const navigate = useNavigate();
+  useMeta({
+    title: "Технологии и возможности",
+    description: "WireGuard, AES-256, eBPF, Zero Trust, микросегментация сети, обнаружение аномалий. Технические решения для защиты корпоративной и личной инфраструктуры.",
+    path: "/capabilities",
+    keywords: "WireGuard, AES-256, Zero Trust, eBPF, сегментация сети, шифрование, VPN технологии",
+  });
 
   return (
     <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">

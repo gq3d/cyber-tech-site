@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import { useMeta } from "@/hooks/useMeta";
 
 const PLANS = [
   {
@@ -87,6 +88,12 @@ const FEATURES = [
 export default function BusinessPage() {
   const [activePlan, setActivePlan] = useState<string | null>(null);
   const navigate = useNavigate();
+  useMeta({
+    title: "Безопасность для бизнеса",
+    description: "Защита корпоративной инфраструктуры: сегментация сети, Zero Trust, мониторинг трафика, защита от утечек данных. Малый офис от 12 900 ₽/мес.",
+    path: "/business",
+    keywords: "безопасность бизнеса, корпоративный VPN, Zero Trust, сегментация сети, защита инфраструктуры, SIEM",
+  });
 
   return (
     <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">

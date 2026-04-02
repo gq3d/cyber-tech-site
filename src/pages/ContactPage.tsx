@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import { useMeta } from "@/hooks/useMeta";
 
 export default function ContactPage() {
   const navigate = useNavigate();
+  useMeta({
+    title: "Связаться с нами",
+    description: "Консультация по защите инфраструктуры, подбор тарифа, подключение. Отвечаем в течение 24 часов. NDA до начала работ.",
+    path: "/contact",
+    keywords: "контакт, консультация, кибербезопасность, заявка, Telegram",
+  });
 
   return (
     <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-4xl mx-auto">

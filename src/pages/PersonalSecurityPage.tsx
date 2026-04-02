@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import { useMeta } from "@/hooks/useMeta";
 
 const FEATURES = [
   {
@@ -77,6 +78,12 @@ const PLANS = [
 
 export default function PersonalSecurityPage() {
   const navigate = useNavigate();
+  useMeta({
+    title: "Личная цифровая безопасность",
+    description: "Анонимность в сети, шифрование трафика, защита от слежки и цифрового следа. Личный VPN и приватный доступ к любым ресурсам. Тарифы от 555 ₽/мес.",
+    path: "/personal-security",
+    keywords: "личная безопасность, VPN, анонимность, шифрование трафика, цифровой след, приватность",
+  });
 
   return (
     <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
