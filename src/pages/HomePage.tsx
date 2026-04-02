@@ -75,6 +75,26 @@ export default function HomePage() {
           Комплексные решения для личной и корпоративной кибербезопасности — от шифрования трафика до защиты корпоративной инфраструктуры
         </p>
 
+        {/* Payment & connection info */}
+        <div className="border border-white/10 p-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3" style={{ background: "rgba(255,255,255,0.03)" }}>
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-white/45">
+            <span className="flex items-center gap-1.5"><Icon name="CreditCard" size={12} className="shrink-0" /> Любой способ оплаты</span>
+            <span className="flex items-center gap-1.5"><Icon name="Zap" size={12} className="shrink-0" /> Подключение за 15–30 минут</span>
+            <span className="flex items-center gap-1.5"><Icon name="MessageCircle" size={12} className="shrink-0" /> Установка через менеджера</span>
+          </div>
+          <div className="flex gap-2 shrink-0">
+            <a href="https://t.me/secureinfosupport" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-medium text-white border border-white/25 px-3 py-1.5 hover:bg-white/10 transition-all whitespace-nowrap">
+              <Icon name="Send" size={11} />
+              Telegram
+            </a>
+            <button onClick={() => navigate("/personal-security")}
+              className="flex items-center gap-1.5 text-xs font-medium text-white/60 border border-white/15 px-3 py-1.5 hover:bg-white/5 hover:text-white transition-all whitespace-nowrap">
+              Начать →
+            </button>
+          </div>
+        </div>
+
         {/* Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 border border-white/10">
           {STATS.map((s, i) => (
