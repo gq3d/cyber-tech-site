@@ -67,9 +67,9 @@ export default function HomePage() {
           <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
           <span className="font-mono text-xs text-white/40 tracking-widest">СИСТЕМА АКТИВНА</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans font-bold text-white leading-tight mb-3">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans font-bold leading-tight mb-3 text-amber-400">
           Защита цифрового<br />
-          <span className="text-white/60">пространства</span>
+          <span className="text-amber-400">пространства</span>
         </h1>
         <p className="text-sm sm:text-base text-white/50 max-w-lg leading-relaxed mb-3">
           Комплексные решения для личной и корпоративной кибербезопасности
