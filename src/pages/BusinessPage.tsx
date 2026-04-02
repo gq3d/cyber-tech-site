@@ -208,6 +208,55 @@ export default function BusinessPage() {
         ))}
       </div>
 
+      {/* Payment & onboarding info */}
+      <div className="border border-white/10 bg-slate-800 p-6 mb-4">
+        <div className="font-mono text-[10px] text-white/30 tracking-widest mb-4">КАК ПОДКЛЮЧИТЬСЯ</div>
+        <div className="grid sm:grid-cols-3 gap-4 mb-5">
+          <div className="flex items-start gap-3">
+            <div className="w-7 h-7 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="MessageSquare" size={13} className="text-white/50" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-white mb-0.5">Напишите менеджеру</div>
+              <div className="text-xs text-white/40 leading-relaxed">В Telegram или в Живом чате на сайте</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-7 h-7 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="CreditCard" size={13} className="text-white/50" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-white mb-0.5">Любой способ оплаты</div>
+              <div className="text-xs text-white/40 leading-relaxed">Карта, СБП, наличные, криптовалюта — принимаем всё</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-7 h-7 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
+              <Icon name="Zap" size={13} className="text-white/50" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-white mb-0.5">Быстрое развёртывание</div>
+              <div className="text-xs text-white/40 leading-relaxed">Настройка инфраструктуры от 1 дня</div>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-white/8 pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <span className="text-xs text-white/35">Подключиться прямо сейчас:</span>
+          <div className="flex gap-3">
+            <a href="https://t.me/secureinfosupport" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-medium text-white border border-white/25 px-3 py-1.5 hover:bg-white/10 transition-all">
+              <Icon name="Send" size={12} />
+              Telegram
+            </a>
+            <button onClick={() => { const w = window as Window & { jivo_api?: { open: () => void } }; if (w.jivo_api) w.jivo_api.open(); }}
+              className="flex items-center gap-1.5 text-xs font-medium text-white/60 border border-white/15 px-3 py-1.5 hover:bg-white/5 hover:text-white transition-all">
+              <Icon name="MessageCircle" size={12} />
+              Живой чат
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="border border-white/10 bg-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <div className="text-base font-semibold text-white mb-1">Нужна индивидуальная конфигурация?</div>
