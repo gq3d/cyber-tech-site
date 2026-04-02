@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 
 export default function FooterSection() {
   return (
-    <footer className="relative bg-[#040710] border-t border-cyber-green border-opacity-10 py-12 px-6 md:px-12">
+    <footer className="relative bg-slate-900 border-t border-cyber-green border-opacity-10 py-12 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div className="md:col-span-2">
