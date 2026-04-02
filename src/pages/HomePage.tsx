@@ -126,7 +126,7 @@ export default function HomePage() {
               </div>
               <Icon name="ArrowRight" size={14} className="mt-1 text-white opacity-0 group-hover:opacity-60 transition-all duration-300 group-hover:translate-x-0.5" />
             </div>
-            <div className="text-base font-semibold text-white mb-2">{section.title}</div>
+            <div className="text-base font-semibold text-amber-400 mb-2">{section.title}</div>
             <p className="text-sm text-white/55 leading-relaxed mb-2">{section.desc}</p>
             {section.price && (
               <p className="text-sm font-bold text-white mb-4">{section.price}</p>
@@ -159,7 +159,7 @@ export default function HomePage() {
               </div>
               <Icon name="ArrowRight" size={14} className="mt-1 text-white/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
             </div>
-            <div className="text-base font-semibold text-white mb-2">{section.title}</div>
+            <div className="text-base font-semibold text-amber-400 mb-2">{section.title}</div>
             <p className="text-sm text-white/40 leading-relaxed mb-4">{section.desc}</p>
             <div className="flex flex-wrap gap-1.5">
               {section.tags.map((tag) => (
