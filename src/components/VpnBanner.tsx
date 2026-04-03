@@ -90,7 +90,7 @@ export default function VpnBanner() {
             className="flex items-center justify-between px-3 py-2.5 transition-all duration-300 group-hover:bg-amber-400/10"
             style={{ border: "1px solid rgba(251,191,36,0.3)" }}
           >
-            <span className="font-mono text-xs font-bold text-amber-400 tracking-wider">Смотреть предложения</span>
+            <span className="font-mono text-xs font-bold text-amber-400 tracking-wider">14 дней бесплатно</span>
             <Icon name="ArrowRight" size={13} className="text-amber-400 group-hover:translate-x-0.5 transition-transform duration-300" />
           </div>
         </div>
