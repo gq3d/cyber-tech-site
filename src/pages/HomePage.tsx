@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import VpnBanner from "@/components/VpnBanner";
 
 const SECTIONS = [
   {
@@ -60,6 +61,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-full bg-black flex flex-col">
+    <VpnBanner />
     <div className="px-4 md:px-8 py-8 max-w-5xl mx-auto w-full">
       {/* Hero block */}
       <div className="mb-8 border border-white/10 bg-slate-800 p-6 md:p-8">
