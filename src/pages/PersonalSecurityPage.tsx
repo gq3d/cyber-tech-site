@@ -113,6 +113,40 @@ export default function PersonalSecurityPage() {
         </div>
       </div>
 
+      {/* App downloads */}
+      <div className="border border-white/10 bg-slate-800 p-4 mb-6">
+        <div className="font-mono text-[10px] text-white/30 tracking-widest mb-3">СКАЧАТЬ ПРИЛОЖЕНИЕ</div>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="https://apps.apple.com/ru/app/npv-tunnel/id1629465476"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-white/50 text-xs font-mono"
+          >
+            <Icon name="Smartphone" size={13} />
+            iPhone · Русский App Store
+          </a>
+          <a
+            href="https://apps.apple.com/app/id6446814690"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-white/50 text-xs font-mono"
+          >
+            <Icon name="Smartphone" size={13} />
+            iPhone · Иностранный App Store (V2Box)
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=dev.hexasoftware.v2box"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-white/50 text-xs font-mono"
+          >
+            <Icon name="Smartphone" size={13} />
+            Android · V2Box
+          </a>
+        </div>
+      </div>
+
       {/* Plans */}
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-xl font-bold text-amber-400">Выберите тариф</h2>
