@@ -97,7 +97,7 @@ export default function BusinessPage() {
 
   return (
     <div className="min-h-full bg-black px-4 md:px-8 py-8 max-w-5xl mx-auto">
-      <button
+      <button className="flex items-center gap-2 text-sm hover:text-white/70 mb-8 transition-colors text-[#ffffff]"
         onClick={() => navigate("/")}
         className="flex items-center gap-2 text-sm text-white/40 hover:text-white/70 mb-8 transition-colors"
       >
@@ -106,13 +106,13 @@ export default function BusinessPage() {
       </button>
 
       <div className="mb-10">
-        <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
+        <span className="font-mono text-xs tracking-widest border border-white/15 px-2 py-1 inline-block mb-4 text-[#ffffff]">
           BUSINESS SECURITY
         </span>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight text-amber-400">
           Безопасность для бизнеса
         </h1>
-        <p className="text-sm sm:text-base text-white/50 max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-base max-w-xl leading-relaxed text-[#ffffff]">
           Защита корпоративной инфраструктуры: от малого офиса до распределённой сети с несколькими ЦОД.
         </p>
       </div>
@@ -134,7 +134,7 @@ export default function BusinessPage() {
       </div>
 
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-xl font-bold text-white">Тарифы</h2>
+        <h2 className="text-xl font-bold text-amber-400">Тарифы</h2>
         <span className="text-sm text-white/30">Развёртывание от 1 дня</span>
       </div>
 
@@ -244,11 +244,11 @@ export default function BusinessPage() {
           <span className="text-xs text-white/35">Подключиться прямо сейчас:</span>
           <div className="flex gap-3">
             <a href="https://t.me/secureinfosupport" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-white border border-white/25 px-3 py-1.5 hover:bg-white/10 transition-all">
+              className="flex items-center gap-1.5 text-xs font-medium border border-white/25 px-3 py-1.5 hover:bg-white/10 transition-all text-amber-400">
               <Icon name="Send" size={12} />
               Telegram
             </a>
-            <button onClick={() => { const w = window as Window & { jivo_api?: { open: () => void } }; if (w.jivo_api) w.jivo_api.open(); }}
+            <button className="flex items-center gap-1.5 text-xs font-medium border border-white/15 px-3 py-1.5 hover:bg-white/5 hover:text-white transition-all text-amber-400" onClick={() => { const w = window as Window & { jivo_api?: { open: () => void } }; if (w.jivo_api) w.jivo_api.open(); }}
               className="flex items-center gap-1.5 text-xs font-medium text-white/60 border border-white/15 px-3 py-1.5 hover:bg-white/5 hover:text-white transition-all">
               <Icon name="MessageCircle" size={12} />
               Живой чат
@@ -262,7 +262,7 @@ export default function BusinessPage() {
           <div className="text-base font-semibold text-white mb-1">Нужна индивидуальная конфигурация?</div>
           <div className="text-sm text-white/45">Опишем архитектуру под вашу инфраструктуру</div>
         </div>
-        <button
+        <button className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 border border-white/30 text-sm font-medium px-5 py-3 hover:bg-white/10 transition-all text-amber-400"
           onClick={() => navigate("/contact")}
           className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-2 border border-white/30 text-white text-sm font-medium px-5 py-3 hover:bg-white/10 transition-all"
         >
