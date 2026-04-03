@@ -58,7 +58,7 @@ export default function VpnBanner() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-black tracking-widest text-amber-400 font-mono">VPN</span>
+                <span className="text-xl font-black tracking-widest text-amber-400 font-mono">PVN</span>
                 <span
                   className="font-mono text-[9px] px-1.5 py-0.5 text-amber-400/80 tracking-widest"
                   style={{ border: "1px solid rgba(251,191,36,0.35)" }}
