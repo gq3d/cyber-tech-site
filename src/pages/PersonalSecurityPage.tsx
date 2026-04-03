@@ -107,6 +107,10 @@ export default function PersonalSecurityPage() {
         <p className="text-sm sm:text-base max-w-xl leading-relaxed text-[#ffffff]">Полный контроль над вашим цифровым присутствием. 
 Ни один внешний наблюдатель не получит информацию о вашей активности в сети.
 Сначала подключаете и проверяете - потом оплачиваете.</p>
+        <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 border border-amber-400/40 bg-amber-400/8">
+          <Icon name="Gift" size={14} className="text-amber-400" />
+          <span className="font-mono text-xs font-bold text-amber-400 tracking-wider">14 ДНЕЙ БЕСПЛАТНО</span>
+        </div>
       </div>
 
       {/* Plans */}
@@ -171,7 +175,7 @@ export default function PersonalSecurityPage() {
                     : "border border-white/15 text-white/35 hover:border-cyber-green/40 hover:text-cyber-green/70"
                   }`}
               >
-                {plan.highlight ? "ВЫБРАТЬ →" : "ПОДРОБНЕЕ"}
+                {plan.id === "ghost" ? "ПОДРОБНЕЕ" : "14 ДНЕЙ БЕСПЛАТНО →"}
               </a>
             </div>
           </div>
