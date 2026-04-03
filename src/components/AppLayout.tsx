@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import FooterSection from "@/components/FooterSection";
 
 const NAV_ITEMS = [
   { path: "/", label: "Главная", icon: "LayoutDashboard", exact: true },
@@ -99,7 +98,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {/* Page content */}
       <main className="flex-1 overflow-auto">
         {children}
-        <FooterSection />
       </main>
 
       {/* Floating Telegram button */}
