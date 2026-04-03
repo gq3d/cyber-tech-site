@@ -145,6 +145,27 @@ export default function PersonalSecurityPage() {
             Android · V2Box
           </a>
         </div>
+        <div className="mt-4 pt-4 border-t border-white/8">
+          <p className="text-sm text-amber-400 mb-3">Для получения активного доступа свяжитесь с менеджером</p>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href="https://t.me/secureinfosupport"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-amber-400 text-black text-xs font-mono font-bold hover:bg-amber-300 transition-colors duration-200"
+            >
+              <Icon name="Send" size={13} />
+              Telegram
+            </a>
+            <button
+              onClick={() => (window as unknown as { jivo_api?: { open: () => void } }).jivo_api?.open()}
+              className="flex items-center gap-2 px-4 py-2 border border-amber-400 text-amber-400 text-xs font-mono font-bold hover:bg-amber-400/10 transition-colors duration-200"
+            >
+              <Icon name="MessageCircle" size={13} />
+              Живой чат
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Plans */}
