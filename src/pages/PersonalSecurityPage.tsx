@@ -121,7 +121,7 @@ export default function PersonalSecurityPage() {
             href="https://apps.apple.com/ru/app/npv-tunnel/id1629465476"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-white/50 text-xs font-mono"
+            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-xs font-mono text-[#ffffff]"
           >
             <Icon name="Smartphone" size={13} />
             iPhone · Русский App Store
@@ -130,7 +130,7 @@ export default function PersonalSecurityPage() {
             href="https://apps.apple.com/app/id6446814690"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-white/50 text-xs font-mono"
+            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-xs font-mono text-[#ffffff]"
           >
             <Icon name="Smartphone" size={13} />
             iPhone · Иностранный App Store (V2Box)
@@ -139,7 +139,7 @@ export default function PersonalSecurityPage() {
             href="https://play.google.com/store/apps/details?id=dev.hexasoftware.v2box"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-white/50 text-xs font-mono"
+            className="flex items-center gap-2 px-3 py-2 border border-white/15 hover:border-cyber-green/40 hover:text-cyber-green/70 transition-all duration-200 text-xs font-mono text-[#ffffff]"
           >
             <Icon name="Smartphone" size={13} />
             Android · V2Box
