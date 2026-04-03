@@ -129,13 +129,13 @@ export default function HomePage() {
               <Icon name="ArrowRight" size={14} className="mt-1 text-white opacity-0 group-hover:opacity-60 transition-all duration-300 group-hover:translate-x-0.5" />
             </div>
             <div className="text-base font-semibold text-amber-400 mb-2">{section.title}</div>
-            <p className="text-sm text-white/55 leading-relaxed mb-2">{section.desc}</p>
+            <p className="text-sm leading-relaxed mb-2 text-[#ffffff]">{section.desc}</p>
             {section.price && (
-              <p className="text-sm font-bold text-white mb-4">{section.price}</p>
+              <p className="text-sm font-bold mb-4 text-amber-400">{section.price}</p>
             )}
             <div className="flex flex-wrap gap-1.5 mb-4">
               {section.tags.map((tag) => (
-                <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-white/60" style={{ border: "1px solid rgba(255,255,255,0.3)" }}>
+                <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-amber-400" style={{ border: "1px solid rgba(255,255,255,0.3)" }}>
                   {tag}
                 </span>
               ))}
@@ -162,10 +162,10 @@ export default function HomePage() {
               <Icon name="ArrowRight" size={14} className="mt-1 text-white/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
             </div>
             <div className="text-base font-semibold text-amber-400 mb-2">{section.title}</div>
-            <p className="text-sm text-white/40 leading-relaxed mb-4">{section.desc}</p>
+            <p className="text-sm leading-relaxed mb-4 text-[#ffffff]">{section.desc}</p>
             <div className="flex flex-wrap gap-1.5">
               {section.tags.map((tag) => (
-                <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-white/25" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+                <span key={tag} className="font-mono text-[10px] px-2 py-0.5 text-amber-400" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
                   {tag}
                 </span>
               ))}
