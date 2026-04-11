@@ -96,7 +96,7 @@ function CheckBanner() {
 
           <div>
             <div className="flex items-center gap-2 mb-0.5">
-              <span className="font-mono text-[10px] text-rose-400/70 tracking-widest">ОБНАРУЖЕНЫ ОГРАНИЧЕНИЯ</span>
+              <span className="font-mono text-rose-400/70 tracking-widest text-base">ОБНАРУЖЕНЫ ОГРАНИЧЕНИЯ</span>
             </div>
             <div className="text-sm sm:text-base font-semibold text-white leading-snug">
               Проверьте, доступен ли{" "}
