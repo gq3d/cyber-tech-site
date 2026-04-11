@@ -194,7 +194,9 @@ export default function BusinessPage() {
 
             {/* Button */}
             <div className="p-5 pt-0">
-              <button className={`w-full py-2.5 font-mono text-xs font-bold tracking-wider transition-all duration-200
+              <button
+                onClick={(e) => { e.stopPropagation(); navigate("/contact"); }}
+                className={`w-full py-2.5 font-mono text-xs font-bold tracking-wider transition-all duration-200
                 ${activePlan === plan.id
                   ? "bg-cyber-green text-cyber-blue"
                   : plan.highlight
