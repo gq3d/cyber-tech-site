@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import VpnBanner from "@/components/VpnBanner";
 
@@ -62,13 +62,24 @@ const BLOCKED_SERVICES = ["YouTube", "WhatsApp", "Instagram", "Facebook", "Disco
 function CheckBanner() {
   const navigate = useNavigate();
   const [tick, setTick] = useState(0);
+  const [visible, setVisible] = useState(true);
   const service = BLOCKED_SERVICES[tick % BLOCKED_SERVICES.length];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setTick((t) => t + 1);
+        setVisible(true);
+      }, 300);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <button
       onClick={() => navigate("/check")}
       className="w-full text-left group border border-rose-500/30 bg-rose-500/5 hover:bg-rose-500/10 hover:border-rose-500/50 transition-all duration-300 p-4 relative overflow-hidden"
-      onMouseEnter={() => setTick((t) => t + 1)}
     >
       {/* Animated top line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-500/60 to-transparent" />
@@ -89,7 +100,10 @@ function CheckBanner() {
             </div>
             <div className="text-sm sm:text-base font-semibold text-white leading-snug">
               Проверьте, доступен ли{" "}
-              <span className="text-rose-400 transition-all duration-300">{service}</span>{" "}
+              <span
+                className="text-rose-400 inline-block transition-all duration-300"
+                style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(-6px)" }}
+              >{service}</span>{" "}
               в вашей сети
             </div>
             <div className="text-xs text-white/35 mt-0.5">
