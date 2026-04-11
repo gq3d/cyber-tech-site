@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { path: "/personal-security", label: "Личная безопасность", icon: "ShieldCheck" },
   { path: "/business", label: "Бизнес", icon: "Briefcase" },
   { path: "/capabilities", label: "Технологии", icon: "Cpu" },
+  { path: "/check", label: "Проверить доступ", icon: "Scan" },
   { path: "/contact", label: "Контакт", icon: "MessageSquare" },
 ];
 
