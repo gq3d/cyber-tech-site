@@ -26,10 +26,10 @@ export default function CapabilitiesListPage() {
         <span className="font-mono text-xs tracking-widest text-white/30 border border-white/15 px-2 py-1 inline-block mb-4">
           TECHNOLOGIES
         </span>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-amber-400">
           Технологии и возможности
         </h1>
-        <p className="text-sm sm:text-base text-white/50 max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-base max-w-xl leading-relaxed text-amber-400">
           Технические детали каждого компонента: протоколы, алгоритмы, архитектурные решения.
         </p>
       </div>
@@ -47,9 +47,9 @@ export default function CapabilitiesListPage() {
               </div>
               <Icon name="ArrowRight" size={14} className="text-white/0 group-hover:text-white/40 transition-all mt-1" />
             </div>
-            <div className="font-mono text-[10px] tracking-widest text-white/30 mb-2">{cap.tag}</div>
+            <div className="font-mono text-[10px] tracking-widest text-white/30 mb-2 rounded-0">{cap.tag}</div>
             <div className="text-base font-semibold text-white mb-2 leading-snug">{cap.title}</div>
-            <p className="text-sm text-white/40 leading-relaxed line-clamp-2">{cap.short}</p>
+            <p className="text-sm leading-relaxed line-clamp-2 text-[#ffffff]">{cap.short}</p>
           </button>
         ))}
       </div>
