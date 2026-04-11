@@ -66,7 +66,7 @@ export default function ContactPage() {
             {["Опишите задачу в свободной форме", "Укажите примерный масштаб", "Инженер свяжется и уточнит детали"].map((step, i) => (
               <div key={step} className="flex items-start gap-3 mb-3">
                 <span className="text-sm text-white/25 mt-0.5 shrink-0 font-mono">{i + 1}.</span>
-                <span className="text-sm text-white/50 leading-relaxed">{step}</span>
+                <span className="text-sm leading-relaxed text-[#ffffff]">{step}</span>
               </div>
             ))}
           </div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                   <div className="w-7 h-7 border border-white/15 flex items-center justify-center shrink-0">
                     <Icon name={item.icon} size={13} className="text-white/40" />
                   </div>
-                  <span className="text-sm text-white/50">{item.text}</span>
+                  <span className="text-sm text-amber-400">{item.text}</span>
                 </div>
               ))}
             </div>
