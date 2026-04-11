@@ -57,7 +57,7 @@ const STATS = [
   { value: "24/7", label: "Поддержка" },
 ];
 
-const BLOCKED_SERVICES = ["YouTube", "Instagram", "WhatsApp", "Facebook", "Discord"];
+const BLOCKED_SERVICES = ["YouTube", "WhatsApp", "Instagram", "Facebook", "Discord"];
 
 function CheckBanner() {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ function CheckBanner() {
   return (
     <button
       onClick={() => navigate("/check")}
-      className="w-full text-left mb-3 group border border-rose-500/30 bg-rose-500/5 hover:bg-rose-500/10 hover:border-rose-500/50 transition-all duration-300 p-5 relative overflow-hidden"
+      className="w-full text-left group border border-rose-500/30 bg-rose-500/5 hover:bg-rose-500/10 hover:border-rose-500/50 transition-all duration-300 p-4 relative overflow-hidden"
       onMouseEnter={() => setTick((t) => t + 1)}
     >
       {/* Animated top line */}
@@ -154,7 +154,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 border border-white/10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 border border-white/10 mb-4">
           {STATS.map((s, i) => (
             <div key={s.label} className={`flex flex-col items-center py-3 px-2 border-white/10 ${
               i % 2 === 0 ? "border-r" : ""
@@ -164,10 +164,10 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Check banner */}
-      <CheckBanner />
+        {/* Check banner — встроен в hero */}
+        <CheckBanner />
+      </div>
 
       {/* Navigation cards */}
       <div className="grid sm:grid-cols-2 gap-3 mb-8">
