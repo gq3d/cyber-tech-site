@@ -203,7 +203,7 @@ export default function PersonalSecurityPage() {
                 </div>
                 <span className={`font-mono text-[10px] tracking-widest ${plan.highlight ? "text-cyber-green/60" : "text-white/25"}`}>{plan.badge}</span>
               </div>
-              <div className="text-base font-bold text-white mb-5">{plan.title}</div>
+              <div className="text-base font-bold text-amber-400 mb-5">{plan.title}</div>
               <div className="flex items-baseline gap-1.5">
                 <span className={`text-3xl font-bold tracking-tight ${plan.highlight ? "text-cyber-green" : "text-white"}`}>{plan.price}</span>
                 <span className="font-mono text-xs text-white/25">{plan.period}</span>
@@ -246,7 +246,7 @@ export default function PersonalSecurityPage() {
                 <Icon name={f.icon} size={20} />
               </div>
               <div>
-                <div className="text-base font-semibold text-white mb-2">{f.title}</div>
+                <div className="text-base font-semibold text-amber-400 mb-2">{f.title}</div>
                 <p className="text-sm text-white/45 leading-relaxed">{f.desc}</p>
               </div>
             </div>
