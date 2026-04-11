@@ -290,11 +290,11 @@ export default function PersonalSecurityPage() {
           <span className="text-xs text-white/35">Подключиться прямо сейчас:</span>
           <div className="flex gap-3">
             <a href="https://t.me/secureinfosupport" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-white border border-white/25 px-3 py-1.5 hover:bg-white/10 transition-all">
+              className="flex items-center gap-1.5 text-xs font-medium border border-white/25 px-3 py-1.5 hover:bg-white/10 transition-all text-amber-400">
               <Icon name="Send" size={12} />
               Telegram
             </a>
-            <button onClick={() => { const w = window as Window & { jivo_api?: { open: () => void } }; if (w.jivo_api) w.jivo_api.open(); }}
+            <button className="flex items-center gap-1.5 text-xs font-medium border border-white/15 px-3 py-1.5 hover:bg-white/5 hover:text-white transition-all text-amber-400" onClick={() => { const w = window as Window & { jivo_api?: { open: () => void } }; if (w.jivo_api) w.jivo_api.open(); }}
               className="flex items-center gap-1.5 text-xs font-medium text-white/60 border border-white/15 px-3 py-1.5 hover:bg-white/5 hover:text-white transition-all">
               <Icon name="MessageCircle" size={12} />
               Живой чат
