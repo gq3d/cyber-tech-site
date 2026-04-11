@@ -36,7 +36,7 @@ export default function ContactPage() {
       <div className="grid md:grid-cols-2 gap-6">
         {/* Contacts */}
         <div className="border border-white/10 bg-slate-800 p-6">
-          <div className="font-mono text-xs text-white/30 mb-6 tracking-widest">// КОНТАКТЫ</div>
+          <div className="font-mono text-xs text-white/30 mb-6 tracking-widest">/// КОНТАКТЫ</div>
           <div className="space-y-5">
             {[
               { icon: "MessageSquare", label: "Telegram", value: "@secureinfosupport", href: "https://t.me/secureinfosupport" },
@@ -50,11 +50,11 @@ export default function ContactPage() {
                   <div className="text-xs text-white/30 mb-0.5">{item.label}</div>
                   {item.href ? (
                     <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
-                      className="text-sm sm:text-base text-white/70 hover:text-white transition-colors break-all">
+                      className="text-sm sm:text-base hover:text-white transition-colors break-all text-amber-400">
                       {item.value}
                     </a>
                   ) : (
-                    <span className="text-sm sm:text-base text-white/55">{item.value}</span>
+                    <span className="text-sm sm:text-base text-amber-400">{item.value}</span>
                   )}
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                 <span className="text-sm text-white/40">{row.label}</span>
                 <div className="flex items-center gap-2 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span className="text-sm font-medium text-white/75">{row.value}</span>
+                  <span className="text-sm font-medium text-amber-400">{row.value}</span>
                 </div>
               </div>
             ))}
