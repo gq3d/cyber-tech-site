@@ -18,10 +18,10 @@ function ArchDiagram({ nodes, edges }: { nodes: CapabilityDiagramNode[]; edges: 
     canvas.height = H;
 
     const TYPE_COLORS: Record<string, string> = {
-      source: "rgba(0,255,136,0.7)",
-      process: "rgba(0,200,255,0.7)",
-      target: "rgba(0,255,136,0.7)",
-      shield: "rgba(255,180,0,0.7)",
+      source: "rgba(251,191,36,0.7)",
+      process: "rgba(251,191,36,0.5)",
+      target: "rgba(251,191,36,0.7)",
+      shield: "rgba(251,191,36,0.8)",
     };
 
     const getXY = (n: CapabilityDiagramNode) => ({
@@ -32,7 +32,7 @@ function ArchDiagram({ nodes, edges }: { nodes: CapabilityDiagramNode[]; edges: 
     ctx.clearRect(0, 0, W, H);
 
     // Draw grid
-    ctx.strokeStyle = "rgba(0,255,136,0.04)";
+    ctx.strokeStyle = "rgba(255,255,255,0.04)";
     ctx.lineWidth = 1;
     for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
     for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
@@ -48,7 +48,7 @@ function ArchDiagram({ nodes, edges }: { nodes: CapabilityDiagramNode[]; edges: 
       ctx.beginPath();
       ctx.moveTo(p1.x, p1.y);
       ctx.lineTo(p2.x, p2.y);
-      ctx.strokeStyle = edge.encrypted ? "rgba(0,255,136,0.5)" : "rgba(0,255,136,0.2)";
+      ctx.strokeStyle = edge.encrypted ? "rgba(251,191,36,0.5)" : "rgba(255,255,255,0.15)";
       ctx.lineWidth = edge.encrypted ? 1.5 : 1;
       if (!edge.encrypted) ctx.setLineDash([4, 4]);
       ctx.stroke();
@@ -66,12 +66,12 @@ function ArchDiagram({ nodes, edges }: { nodes: CapabilityDiagramNode[]; edges: 
       ctx.lineTo(-8, -4);
       ctx.lineTo(-8, 4);
       ctx.closePath();
-      ctx.fillStyle = edge.encrypted ? "rgba(0,255,136,0.6)" : "rgba(0,255,136,0.25)";
+      ctx.fillStyle = edge.encrypted ? "rgba(251,191,36,0.6)" : "rgba(255,255,255,0.2)";
       ctx.fill();
       ctx.restore();
 
       if (edge.label) {
-        ctx.fillStyle = "rgba(0,255,136,0.35)";
+        ctx.fillStyle = "rgba(251,191,36,0.4)";
         ctx.font = `9px IBM Plex Mono, monospace`;
         ctx.fillText(edge.label, mx + 4, my - 5);
       }
@@ -80,13 +80,13 @@ function ArchDiagram({ nodes, edges }: { nodes: CapabilityDiagramNode[]; edges: 
     // Draw nodes
     for (const node of nodes) {
       const { x, y } = getXY(node);
-      const color = TYPE_COLORS[node.type] || "rgba(0,255,136,0.5)";
+      const color = TYPE_COLORS[node.type] || "rgba(251,191,36,0.5)";
 
       ctx.strokeStyle = color;
       ctx.lineWidth = 1;
       const bw = 80, bh = 36;
       ctx.strokeRect(x - bw / 2, y - bh / 2, bw, bh);
-      ctx.fillStyle = "rgba(6,10,18,0.85)";
+      ctx.fillStyle = "rgba(15,23,42,0.9)";
       ctx.fillRect(x - bw / 2 + 1, y - bh / 2 + 1, bw - 2, bh - 2);
 
       const lines = node.label.split("\n");
@@ -161,24 +161,15 @@ export default function CapabilityPage() {
   }, [cap]);
 
   const goBack = () => {
-    const savedY = sessionStorage.getItem("capabilities_scroll_y");
-    navigate("/");
-    if (savedY) {
-      const y = parseInt(savedY, 10);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: y, behavior: "instant" });
-        });
-      });
-    }
+    navigate("/capabilities");
   };
 
   if (!cap) {
     return (
-      <div className="min-h-screen bg-cyber-blue flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="font-mono text-cyber-green opacity-40 mb-4">404 · NOT FOUND</div>
-          <Link to="/" className="font-mono text-sm text-cyber-green border border-cyber-green border-opacity-30 px-4 py-2">← На главную</Link>
+          <div className="font-mono text-white/40 mb-4">404 · NOT FOUND</div>
+          <Link to="/" className="font-mono text-sm text-amber-400 border border-amber-400/30 px-4 py-2">← На главную</Link>
         </div>
       </div>
     );
@@ -186,91 +177,71 @@ export default function CapabilityPage() {
 
   return (
     <div
-      className="min-h-screen bg-cyber-blue"
+      className="min-h-full bg-black"
       style={{ opacity: visible ? 1 : 0, transition: "opacity 0.4s ease" }}
     >
-      {/* Nav */}
-      <nav className="border-b border-cyber-green border-opacity-10 px-6 md:px-12 py-4 flex items-center justify-between sticky top-0 bg-cyber-blue z-50">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-6 h-6 border border-cyber-green flex items-center justify-center">
-            <div className="w-2.5 h-2.5 bg-cyber-green" />
-          </div>
-          <span className="font-mono text-xs text-cyber-green opacity-60 group-hover:opacity-100 transition-opacity tracking-widest">инфо-безопасность.рф</span>
-        </Link>
+      <div className="max-w-5xl mx-auto px-4 md:px-8 py-8">
 
-        <div className="flex items-center gap-2">
-          <span className="font-mono text-xs text-cyber-green opacity-30 hidden sm:block">Возможности</span>
-          <span className="font-mono text-xs text-cyber-green opacity-15 hidden sm:block">/</span>
-          <span className={`font-mono text-[10px] border px-2 py-0.5 ${cap.tagColor}`}>{cap.tag}</span>
-        </div>
-
-        <button onClick={goBack} className="flex items-center gap-1.5 font-mono text-xs text-cyber-green opacity-50 hover:opacity-100 transition-opacity">
-          <Icon name="ArrowLeft" size={12} />
+        <button
+          onClick={goBack}
+          className="flex items-center gap-2 text-sm text-white/40 hover:text-white/70 mb-8 transition-colors"
+        >
+          <Icon name="ArrowLeft" size={15} />
           Назад
         </button>
-      </nav>
-
-      <div className="max-w-5xl mx-auto px-6 md:px-12 py-14">
 
         {/* Header */}
-        <div className="mb-14">
+        <div className="mb-10 border border-white/10 bg-slate-800 p-6 md:p-8">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 border border-cyber-green border-opacity-40 flex items-center justify-center bg-cyber-green bg-opacity-5">
-              <Icon name={cap.icon} size={22} className="text-cyber-green" />
+            <div className="w-10 h-10 border border-white/20 flex items-center justify-center">
+              <Icon name={cap.icon} size={18} className="text-white/60" />
             </div>
-            <div>
-              <div className="font-mono text-xs text-cyber-green opacity-35 mb-0.5">{cap.short}</div>
-              <div className="font-mono text-xs text-cyber-green opacity-20">{String(idx + 1).padStart(2, "0")} / {String(CAPABILITIES.length).padStart(2, "0")}</div>
-            </div>
+            <span className="font-mono text-[10px] tracking-widest text-white/30 border border-white/15 px-2 py-0.5">{cap.tag}</span>
+            <span className="font-mono text-[10px] text-white/20">{String(idx + 1).padStart(2, "0")} / {String(CAPABILITIES.length).padStart(2, "0")}</span>
           </div>
-
-          <h1 className="text-3xl md:text-4xl font-sans font-semibold text-white leading-tight mb-5">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4 text-amber-400">
             {cap.title}
           </h1>
-          <p className="font-mono text-sm text-cyber-green opacity-60 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base max-w-2xl leading-relaxed text-white/60">
             {cap.summary}
           </p>
         </div>
 
-        {/* Main grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-
-          {/* Problem */}
-          <div className="border border-cyber-green border-opacity-10 bg-black bg-opacity-20 p-6">
+        {/* Problem / Solution */}
+        <div className="grid md:grid-cols-2 gap-3 mb-6">
+          <div className="border border-white/10 bg-slate-800 p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Icon name="AlertTriangle" size={13} className="text-rose-400 opacity-70" />
-              <span className="font-mono text-xs text-rose-400 opacity-60 tracking-widest">// ПРОБЛЕМА</span>
+              <Icon name="AlertTriangle" size={13} className="text-rose-400" />
+              <span className="font-mono text-xs text-rose-400/70 tracking-widest">ПРОБЛЕМА</span>
             </div>
-            <p className="font-mono text-xs text-cyber-green opacity-55 leading-relaxed">{cap.problem}</p>
+            <p className="text-sm text-white/55 leading-relaxed">{cap.problem}</p>
           </div>
-
-          {/* Solution */}
-          <div className="border border-cyber-green border-opacity-20 bg-cyber-green bg-opacity-[0.03] p-6">
+          <div className="border border-white/15 bg-slate-800 p-6">
             <div className="flex items-center gap-2 mb-4">
-              <Icon name="CheckCircle" size={13} className="text-cyber-green opacity-70" />
-              <span className="font-mono text-xs text-cyber-green opacity-60 tracking-widest">// РЕШЕНИЕ</span>
+              <Icon name="CheckCircle" size={13} className="text-amber-400" />
+              <span className="font-mono text-xs text-amber-400/70 tracking-widest">РЕШЕНИЕ</span>
             </div>
-            <p className="font-mono text-xs text-cyber-green opacity-65 leading-relaxed">{cap.solution}</p>
+            <p className="text-sm text-white/55 leading-relaxed">{cap.solution}</p>
           </div>
         </div>
 
         {/* Diagram */}
-        <div className="border border-cyber-green border-opacity-15 bg-black bg-opacity-30 mb-10">
-          <div className="flex items-center gap-2 px-5 py-3 border-b border-cyber-green border-opacity-10">
+        <div className="border border-white/10 bg-slate-900 mb-6">
+          <div className="flex items-center gap-2 px-5 py-3 border-b border-white/8">
             <div className="flex gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-red-500 opacity-60" />
-              <div className="w-2 h-2 rounded-full bg-yellow-500 opacity-60" />
-              <div className="w-2 h-2 rounded-full bg-cyber-green opacity-60" />
+              <div className="w-2 h-2 rounded-full bg-red-500/60" />
+              <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+              <div className="w-2 h-2 rounded-full bg-white/30" />
             </div>
-            <span className="font-mono text-[10px] text-cyber-green opacity-30 ml-1">architecture.diagram</span>
+            <span className="font-mono text-[10px] text-white/25 ml-1">architecture.diagram</span>
             <div className="ml-auto flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <div className="w-5 h-px bg-cyber-green opacity-50" />
-                <span className="font-mono text-[9px] text-cyber-green opacity-30">зашифрованный</span>
+                <div className="w-5 h-px bg-amber-400/50" />
+                <span className="font-mono text-[9px] text-white/25">зашифрованный</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <div className="w-5 h-px bg-cyber-green opacity-20" style={{ borderTop: "1px dashed" }} />
-                <span className="font-mono text-[9px] text-cyber-green opacity-30">открытый</span>
+                <div className="w-5 h-px bg-white/20" style={{ borderTop: "1px dashed" }} />
+                <span className="font-mono text-[9px] text-white/25">открытый</span>
               </div>
             </div>
           </div>
@@ -280,37 +251,36 @@ export default function CapabilityPage() {
         </div>
 
         {/* Specs */}
-        <div className="mb-10">
-          <div className="font-mono text-xs text-cyber-green opacity-30 tracking-widest mb-4">// ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-cyber-green bg-opacity-[0.07]">
+        <div className="mb-6">
+          <div className="font-mono text-xs text-white/25 tracking-widest mb-3">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
             {cap.specs.map((s) => (
-              <div key={s.label} className="bg-cyber-blue p-4 hover:bg-black hover:bg-opacity-30 transition-colors">
-                <div className="font-mono text-[10px] text-cyber-green opacity-35 mb-1.5">{s.label}</div>
-                <div className="font-mono text-sm text-cyber-green font-semibold">{s.value}</div>
+              <div key={s.label} className="bg-slate-900 p-4 hover:bg-slate-800 transition-colors">
+                <div className="font-mono text-[10px] text-white/35 mb-1.5">{s.label}</div>
+                <div className="font-mono text-sm text-amber-400 font-semibold">{s.value}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Use cases + tech stack */}
-        <div className="grid md:grid-cols-2 gap-8 mb-14">
-          <div className="border border-cyber-green border-opacity-10 p-6">
-            <div className="font-mono text-xs text-cyber-green opacity-30 tracking-widest mb-4">// СЦЕНАРИИ ПРИМЕНЕНИЯ</div>
+        <div className="grid md:grid-cols-2 gap-3 mb-6">
+          <div className="border border-white/10 bg-slate-800 p-6">
+            <div className="font-mono text-xs text-white/25 tracking-widest mb-4">СЦЕНАРИИ ПРИМЕНЕНИЯ</div>
             <div className="space-y-3">
               {cap.useCases.map((u, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="font-mono text-[10px] text-cyber-green opacity-25 mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="font-mono text-xs text-cyber-green opacity-60 leading-snug">{u}</span>
+                  <span className="font-mono text-[10px] text-amber-400/50 mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-sm text-white/55 leading-snug">{u}</span>
                 </div>
               ))}
             </div>
           </div>
-
-          <div className="border border-cyber-green border-opacity-10 p-6">
-            <div className="font-mono text-xs text-cyber-green opacity-30 tracking-widest mb-4">// ТЕХНОЛОГИЧЕСКИЙ СТЕК</div>
+          <div className="border border-white/10 bg-slate-800 p-6">
+            <div className="font-mono text-xs text-white/25 tracking-widest mb-4">ТЕХНОЛОГИЧЕСКИЙ СТЕК</div>
             <div className="flex flex-wrap gap-2">
               {cap.techStack.map((t) => (
-                <span key={t} className="font-mono text-xs border border-cyber-green border-opacity-20 text-cyber-green opacity-65 px-2.5 py-1">
+                <span key={t} className="font-mono text-xs border border-white/15 text-amber-400 px-2.5 py-1">
                   {t}
                 </span>
               ))}
@@ -319,30 +289,31 @@ export default function CapabilityPage() {
         </div>
 
         {/* CTA */}
-        <div className="border border-cyber-green border-opacity-20 bg-cyber-green bg-opacity-[0.03] p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-14">
+        <div className="border border-white/15 bg-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
           <div>
-            <div className="font-sans text-base font-semibold text-white mb-1">Нужна консультация по этой возможности?</div>
-            <div className="font-mono text-xs text-cyber-green opacity-45">Инженер разберёт применимость к вашей инфраструктуре</div>
+            <div className="text-base font-semibold text-white mb-1">Нужна консультация по этой возможности?</div>
+            <div className="text-sm text-white/40">Инженер разберёт применимость к вашей инфраструктуре</div>
           </div>
           <Link
             to="/contact"
-            className="font-mono text-xs bg-cyber-green text-cyber-blue font-bold px-6 py-3 hover:bg-cyber-green-dim transition-colors shrink-0 tracking-wider"
+            className="flex items-center gap-2 text-sm font-medium text-white border border-white/25 px-4 py-2.5 hover:bg-white/10 transition-all whitespace-nowrap"
           >
-            Запросить консультацию →
+            <Icon name="Send" size={14} />
+            Связаться →
           </Link>
         </div>
 
         {/* Prev / Next navigation */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3 mb-6">
           {prev ? (
             <button
               onClick={() => navigate(`/capabilities/${prev.slug}`)}
-              className="group flex items-center gap-3 border border-cyber-green border-opacity-10 hover:border-opacity-30 p-4 text-left transition-all duration-200"
+              className="group flex items-center gap-3 border border-white/10 hover:border-white/30 bg-slate-800 p-4 text-left transition-all duration-200"
             >
-              <Icon name="ArrowLeft" size={14} className="text-cyber-green opacity-40 group-hover:opacity-80 shrink-0 transition-opacity" />
+              <Icon name="ArrowLeft" size={14} className="text-white/30 group-hover:text-white/60 shrink-0 transition-colors" />
               <div className="min-w-0">
-                <div className="font-mono text-[10px] text-cyber-green opacity-30 mb-0.5">Предыдущая</div>
-                <div className="font-sans text-xs text-white opacity-70 group-hover:opacity-100 transition-opacity leading-snug truncate">{prev.title}</div>
+                <div className="font-mono text-[10px] text-white/25 mb-0.5">Предыдущая</div>
+                <div className="text-xs text-white/60 group-hover:text-white transition-colors leading-snug truncate">{prev.title}</div>
               </div>
             </button>
           ) : <div />}
@@ -350,20 +321,20 @@ export default function CapabilityPage() {
           {next ? (
             <button
               onClick={() => navigate(`/capabilities/${next.slug}`)}
-              className="group flex items-center gap-3 border border-cyber-green border-opacity-10 hover:border-opacity-30 p-4 text-right ml-auto w-full justify-end transition-all duration-200"
+              className="group flex items-center gap-3 border border-white/10 hover:border-white/30 bg-slate-800 p-4 text-right ml-auto w-full justify-end transition-all duration-200"
             >
               <div className="min-w-0">
-                <div className="font-mono text-[10px] text-cyber-green opacity-30 mb-0.5">Следующая</div>
-                <div className="font-sans text-xs text-white opacity-70 group-hover:opacity-100 transition-opacity leading-snug truncate">{next.title}</div>
+                <div className="font-mono text-[10px] text-white/25 mb-0.5">Следующая</div>
+                <div className="text-xs text-white/60 group-hover:text-white transition-colors leading-snug truncate">{next.title}</div>
               </div>
-              <Icon name="ArrowRight" size={14} className="text-cyber-green opacity-40 group-hover:opacity-80 shrink-0 transition-opacity" />
+              <Icon name="ArrowRight" size={14} className="text-white/30 group-hover:text-white/60 shrink-0 transition-colors" />
             </button>
           ) : <div />}
         </div>
 
         {/* All capabilities */}
-        <div className="mt-10 border-t border-cyber-green border-opacity-10 pt-8">
-          <div className="font-mono text-xs text-cyber-green opacity-25 mb-4 tracking-widest">// ВСЕ ВОЗМОЖНОСТИ</div>
+        <div className="border-t border-white/10 pt-6">
+          <div className="font-mono text-xs text-white/25 mb-4 tracking-widest">ВСЕ ВОЗМОЖНОСТИ</div>
           <div className="flex flex-wrap gap-2">
             {CAPABILITIES.map((c) => (
               <Link
@@ -371,11 +342,11 @@ export default function CapabilityPage() {
                 to={`/capabilities/${c.slug}`}
                 className={`font-mono text-xs px-3 py-1.5 border transition-all duration-150 ${
                   c.slug === slug
-                    ? "border-cyber-green text-cyber-green"
-                    : "border-cyber-green border-opacity-15 text-cyber-green opacity-40 hover:opacity-70 hover:border-opacity-30"
+                    ? "border-amber-400/60 text-amber-400"
+                    : "border-white/10 text-white/35 hover:border-white/30 hover:text-white/60"
                 }`}
               >
-                {c.short}
+                {c.tag}
               </Link>
             ))}
           </div>
