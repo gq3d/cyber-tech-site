@@ -83,7 +83,7 @@ export default function ContactPage() {
             <span className="font-mono text-xs text-white/30 ml-2">system.status</span>
             <div className="ml-auto flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              <span className="font-mono text-xs text-white/40">ONLINE</span>
+              <span className="font-mono text-xs text-amber-400">ONLINE</span>
             </div>
           </div>
 
