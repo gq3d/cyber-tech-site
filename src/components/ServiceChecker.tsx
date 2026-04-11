@@ -95,11 +95,38 @@ const STATUS_ICON: Record<Status | string, string> = {
   checking: "Loader",
 };
 
+function buildShareText(results: ServiceResult[]): string {
+  const blocked = results.filter((r) => r.status === "blocked").map((r) => r.service.name);
+  const ok = results.filter((r) => r.status === "ok").map((r) => r.service.name);
+  const slow = results.filter((r) => r.status === "slow").map((r) => r.service.name);
+
+  const lines: string[] = [
+    "🔍 Проверка доступности сервисов — инфо-безопасность.рф",
+    "",
+  ];
+  if (blocked.length) lines.push(`🔴 Недоступно (${blocked.length}): ${blocked.join(", ")}`);
+  if (slow.length)    lines.push(`🟡 Медленно (${slow.length}): ${slow.join(", ")}`);
+  if (ok.length)      lines.push(`🟢 Доступно (${ok.length}): ${ok.join(", ")}`);
+  lines.push("", "Проверь свою сеть: https://инфо-безопасность.рф/check");
+  return lines.join("\n");
+}
+
 export default function ServiceChecker() {
   const [results, setResults] = useState<ServiceResult[]>([]);
   const [phase, setPhase] = useState<"idle" | "running" | "done">("idle");
   const [current, setCurrent] = useState<number>(-1);
+  const [copied, setCopied] = useState(false);
   const abortRef = useRef(false);
+
+  const share = async () => {
+    const text = buildShareText(results);
+    if (navigator.share) {
+      try { await navigator.share({ title: "Проверка доступности сервисов", text }); return; } catch { /* fallback */ }
+    }
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   const runCheck = useCallback(async () => {
     abortRef.current = false;
@@ -276,7 +303,14 @@ export default function ServiceChecker() {
                       <span className="text-rose-400 font-semibold">{blockedCount} сервис(а) недоступны</span> с вашего соединения.
                       Подключите защищённый канал и запустите тест повторно — результат изменится.
                     </div>
-                    <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex items-center gap-2 shrink-0 flex-wrap">
+                      <button
+                        onClick={share}
+                        className="flex items-center gap-1.5 font-mono text-xs text-white/40 hover:text-white/70 px-3 py-2 border border-white/10 hover:border-white/20 transition-colors"
+                      >
+                        <Icon name={copied ? "Check" : "Share2"} size={12} />
+                        {copied ? "Скопировано!" : "Поделиться"}
+                      </button>
                       <button
                         onClick={reset}
                         className="font-mono text-xs text-white/30 hover:text-white/60 px-3 py-2 border border-white/10 hover:border-white/20 transition-colors"
@@ -297,12 +331,21 @@ export default function ServiceChecker() {
                       Все сервисы доступны.
                       {slowCount > 0 && ` ${slowCount} работают медленно — защищённый канал оптимизирует маршрут.`}
                     </div>
-                    <button
-                      onClick={reset}
-                      className="font-mono text-xs text-white/30 hover:text-white/60 px-3 py-2 border border-white/10 hover:border-white/20 transition-colors shrink-0"
-                    >
-                      Повторить
-                    </button>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={share}
+                        className="flex items-center gap-1.5 font-mono text-xs text-white/40 hover:text-white/70 px-3 py-2 border border-white/10 hover:border-white/20 transition-colors"
+                      >
+                        <Icon name={copied ? "Check" : "Share2"} size={12} />
+                        {copied ? "Скопировано!" : "Поделиться"}
+                      </button>
+                      <button
+                        onClick={reset}
+                        className="font-mono text-xs text-white/30 hover:text-white/60 px-3 py-2 border border-white/10 hover:border-white/20 transition-colors"
+                      >
+                        Повторить
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>

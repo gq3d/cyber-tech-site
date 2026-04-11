@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import VpnBanner from "@/components/VpnBanner";
 
@@ -56,6 +57,60 @@ const STATS = [
   { value: "24/7", label: "Поддержка" },
 ];
 
+const BLOCKED_SERVICES = ["YouTube", "Instagram", "WhatsApp", "Facebook", "Discord"];
+
+function CheckBanner() {
+  const navigate = useNavigate();
+  const [tick, setTick] = useState(0);
+  const service = BLOCKED_SERVICES[tick % BLOCKED_SERVICES.length];
+
+  return (
+    <button
+      onClick={() => navigate("/check")}
+      className="w-full text-left mb-3 group border border-rose-500/30 bg-rose-500/5 hover:bg-rose-500/10 hover:border-rose-500/50 transition-all duration-300 p-5 relative overflow-hidden"
+      onMouseEnter={() => setTick((t) => t + 1)}
+    >
+      {/* Animated top line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-500/60 to-transparent" />
+
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          {/* Pulse indicator */}
+          <div className="relative shrink-0">
+            <div className="w-10 h-10 border border-rose-500/40 flex items-center justify-center">
+              <Icon name="Globe" size={18} className="text-rose-400" />
+            </div>
+            <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-rose-500 animate-pulse" />
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2 mb-0.5">
+              <span className="font-mono text-[10px] text-rose-400/70 tracking-widest">ОБНАРУЖЕНЫ ОГРАНИЧЕНИЯ</span>
+            </div>
+            <div className="text-sm sm:text-base font-semibold text-white leading-snug">
+              Проверьте, доступен ли{" "}
+              <span className="text-rose-400 transition-all duration-300">{service}</span>{" "}
+              в вашей сети
+            </div>
+            <div className="text-xs text-white/35 mt-0.5">
+              Бесплатный тест · 12 сервисов · реальные запросы из браузера
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="hidden sm:inline font-mono text-xs text-white/40 group-hover:text-white/70 transition-colors">
+            Начать тест
+          </span>
+          <div className="w-8 h-8 border border-white/15 group-hover:border-white/30 flex items-center justify-center transition-colors">
+            <Icon name="ArrowRight" size={14} className="text-white/30 group-hover:text-white/60 group-hover:translate-x-0.5 transition-all" />
+          </div>
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export default function HomePage() {
   const navigate = useNavigate();
 
@@ -110,6 +165,9 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* Check banner */}
+      <CheckBanner />
 
       {/* Navigation cards */}
       <div className="grid sm:grid-cols-2 gap-3 mb-8">
