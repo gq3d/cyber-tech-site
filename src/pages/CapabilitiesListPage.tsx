@@ -48,7 +48,7 @@ export default function CapabilitiesListPage() {
               <Icon name="ArrowRight" size={14} className="text-white/0 group-hover:text-white/40 transition-all mt-1" />
             </div>
             <div className="font-mono text-[10px] tracking-widest text-white/30 mb-2 rounded-0">{cap.tag}</div>
-            <div className="text-base font-semibold text-white mb-2 leading-snug">{cap.title}</div>
+            <div className="text-base font-semibold text-amber-400 mb-2 leading-snug">{cap.title}</div>
             <p className="text-sm leading-relaxed line-clamp-2 text-[#ffffff]">{cap.short}</p>
           </button>
         ))}
