@@ -1,19 +1,41 @@
 import os
+import re
+import json
 import boto3
 import requests
 
 def handler(event: dict, context) -> dict:
     """Скачивает APK с Google Drive и загружает в S3 хранилище проекта."""
-    
+
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '86400'}, 'body': ''}
 
     file_id = '1P9gYPUsPiU1r8j84Dpl2iGeYYbUnAJf3'
-    download_url = f'https://drive.google.com/uc?export=download&id={file_id}&confirm=t'
 
     session = requests.Session()
-    response = session.get(download_url, stream=True, timeout=60)
-    response.raise_for_status()
+
+    # Первый запрос — получаем страницу подтверждения или сразу файл
+    url = f'https://drive.google.com/uc?export=download&id={file_id}'
+    response = session.get(url, timeout=60)
+
+    # Если Google вернул страницу подтверждения (для больших файлов) — ищем confirm token
+    if 'text/html' in response.headers.get('Content-Type', ''):
+        # Ищем confirm параметр в HTML
+        match = re.search(r'confirm=([0-9A-Za-z_\-]+)', response.text)
+        if match:
+            confirm = match.group(1)
+        else:
+            confirm = 't'
+        
+        # Также ищем uuid если есть
+        uuid_match = re.search(r'uuid=([0-9A-Za-z_\-]+)', response.text)
+        if uuid_match:
+            uuid = uuid_match.group(1)
+            download_url = f'https://drive.usercontent.google.com/download?id={file_id}&export=download&confirm={confirm}&uuid={uuid}'
+        else:
+            download_url = f'https://drive.usercontent.google.com/download?id={file_id}&export=download&confirm={confirm}'
+
+        response = session.get(download_url, timeout=120)
 
     apk_data = response.content
 
@@ -37,5 +59,5 @@ def handler(event: dict, context) -> dict:
     return {
         'statusCode': 200,
         'headers': {'Access-Control-Allow-Origin': '*'},
-        'body': f'{{"success": true, "url": "{cdn_url}"}}'
+        'body': json.dumps({'success': True, 'url': cdn_url, 'size_bytes': len(apk_data)})
     }
