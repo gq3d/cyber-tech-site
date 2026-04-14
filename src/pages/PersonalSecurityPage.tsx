@@ -144,6 +144,14 @@ export default function PersonalSecurityPage() {
             <Icon name="Smartphone" size={13} />
             Android · V2Box
           </a>
+          <a
+            href="https://cdn.poehali.dev/projects/233dcfd3-64d0-41d4-9ea3-846a99343f89/bucket/app/app-release.apk"
+            download="app-release.apk"
+            className="flex items-center gap-2 px-3 py-2 border border-amber-400/40 bg-amber-400/8 hover:border-amber-400/70 hover:bg-amber-400/15 transition-all duration-200 text-xs font-mono text-amber-400"
+          >
+            <Icon name="Download" size={13} />
+            Android · Наше приложение (APK)
+          </a>
         </div>
         <div className="mt-4 pt-4 border-t border-white/8">
           <p className="text-sm text-amber-400 mb-3">Для получения активного доступа свяжитесь с менеджером</p>
